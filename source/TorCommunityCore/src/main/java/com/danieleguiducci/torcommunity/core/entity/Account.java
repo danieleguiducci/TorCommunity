@@ -34,7 +34,17 @@ public class Account implements Serializable{
     private byte[] signature;
     @Lob
     private byte[] accountManifest;
+    @Index(name = "idxAccountSecretId")
+    private byte[] accountSecretId;
 
+    public byte[] getAccountSecretId() {
+        return accountSecretId;
+    }
+
+    public void setAccountSecretId(byte[] accountSecretId) {
+        this.accountSecretId = accountSecretId;
+    }
+    
     public Long getId() {
         return id;
     }

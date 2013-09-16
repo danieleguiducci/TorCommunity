@@ -14,6 +14,7 @@ import com.danieleguiducci.torcommunity.core.service.CreationAccountException;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.Signature;
@@ -61,28 +62,29 @@ public class AccountServiceImp implements AccountService {
     @Override
     public Account createNewAccount(String username, String userPassword) throws CreationAccountException {
         try {
-             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("EC");
+            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("EC");
             keyGen.initialize(224);
-            KeyPair paio=keyGen.genKeyPair();
-            
+            KeyPair paio = keyGen.genKeyPair();
+
             AccountManifest manifest = new AccountManifest();
             manifest.setUserName(username);
             manifest.setCreatedTime(System.currentTimeMillis());
             manifest.setEncPrivateKey(cripta(paio.getPrivate(), manifest.getCreatedTime(), userPassword));
             manifest.setPublicKey(paio.getPublic().getEncoded());
             manifest.setUserName(username);
-            
-           
-            byte[] rawManifest=manifestBuilder.serializa(manifest);
-            
-             Signature dsa = Signature.getInstance("SHA1withECDSA");
+            manifest.setAccountSecretId(generateSecretId(username,userPassword));
+
+            byte[] rawManifest = manifestBuilder.serializa(manifest);
+
+            Signature dsa = Signature.getInstance("SHA1withECDSA");
             dsa.initSign(paio.getPrivate());
             dsa.update(rawManifest);
-            
+
             Account account = new Account();
             account.setAccountManifest(rawManifest);
             account.setSignature(dsa.sign());
             account.setHash(digestUtil.getSha1().digest(rawManifest));
+            account.setAccountSecretId(manifest.getAccountSecretId());
             accountDao.insert(account);
             //manifest.set
             return account;
@@ -102,14 +104,13 @@ public class AccountServiceImp implements AccountService {
         return cipher.doFinal(privKey.getEncoded());
     }
 
-   /* private String generateEncPassword(long createdTime, String userPassword) {
-        return (createdTime + "#" + userPassword);
-          MessageDigest digest= digestUtil.getSha1();
-         for(int i=0; i<100000; i++) {
-         byte[] tmp=digest.digest( (createdTime+""+userPassword+i).getBytes()  );
-         digest.update(tmp);
-         }
-         byte[] encPassword=digest.digest();
-         return encPassword;
-    }*/
+    private byte[] generateSecretId(String username, String userPassword) {
+        MessageDigest digest = digestUtil.getSha1();
+        for (int i = 0; i < 100000; i++) {
+            byte[] tmp = digest.digest((username + "#.#" + userPassword + i).getBytes());
+            digest.update(tmp);
+        }
+        byte[] encPassword = digest.digest();
+        return encPassword;
+    }
 }

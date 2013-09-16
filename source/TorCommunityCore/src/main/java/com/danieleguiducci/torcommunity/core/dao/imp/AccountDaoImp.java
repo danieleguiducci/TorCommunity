@@ -55,4 +55,13 @@ public class AccountDaoImp implements AccountDao {
         Session session = sessionFactory.getCurrentSession();
         session.delete(account);
     }
+
+    @Override
+    @Transactional
+    public Account findBySecretId(byte[] secretId) {
+        Session session = sessionFactory.getCurrentSession();
+        Query q = session.createQuery("FROM Account account WHERE account.accountSecretId=:hash");
+        q.setBinary("hash", secretId);
+        return (Account) q.uniqueResult();
+    }
 }

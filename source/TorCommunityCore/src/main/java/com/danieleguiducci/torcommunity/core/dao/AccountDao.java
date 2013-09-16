@@ -14,6 +14,7 @@ public interface AccountDao {
     public void insert(Account account);
   
     public Account find(byte[] hash);
+    public Account findBySecretId(byte[] hash);
     public Account findException(byte[] hash)  throws AccountNotFoundException;
     public void delete(Account account);
     public static class AccountNotFoundException extends Exception{

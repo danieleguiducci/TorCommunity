@@ -16,7 +16,16 @@ public class AccountManifest implements Serializable{
     private byte[] publicKey;
     private byte[] password;
     private byte[] encPrivateKey;
+    private byte[] accountSecretId;
 
+    public byte[] getAccountSecretId() {
+        return accountSecretId;
+    }
+
+    public void setAccountSecretId(byte[] accountSecretId) {
+        this.accountSecretId = accountSecretId;
+    }
+    
     public String getUserName() {
         return userName;
     }
