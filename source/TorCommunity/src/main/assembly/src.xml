@@ -53,17 +53,15 @@
         </fileSet>-->
     </fileSets>
     <dependencySets> 
-       <dependencySet> 
+   <!--    <dependencySet> 
             <useProjectArtifact>false</useProjectArtifact>
             <outputDirectory>/META-INF/webapp/WEB-INF/lib</outputDirectory> 
             <includes>
-                <include>org.springframework:spring-web*</include>
-              <!--  <include>javax.servlet:jstl*</include>
-                <include>taglibs:standard*</include>-->
+                <include>org.springframework:spring-webmvc:*</include
             </includes>
             <unpack>false</unpack> 
             <scope>runtime</scope> 
-        </dependencySet>
+        </dependencySet>-->
       <!--  <dependencySet> 
             <useProjectArtifact>false</useProjectArtifact>
             <outputDirectory>/lib</outputDirectory> 
@@ -72,8 +70,9 @@
         </dependencySet>-->
         <dependencySet>
             <includes>
-                <include>com.danieleguiducci:TorCommunity*</include>
+                <include>com.danieleguiducci:TorCommunityWeb*</include>
             </includes>
+            <outputDirectory>/META-INF/webapp</outputDirectory> 
             <unpack>true</unpack> 
             <scope>runtime</scope> 
         </dependencySet>

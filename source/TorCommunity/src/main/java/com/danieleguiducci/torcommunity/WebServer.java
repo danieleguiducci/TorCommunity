@@ -98,8 +98,9 @@ public class WebServer {
         logger.info("Creo handler");
         WebAppContext _ctx = new WebAppContext();
         _ctx.setContextPath("/");
-        logger.info("WebApp context creato");
-        if (false) {//isRunningInShadedJar()
+        String log4jpath=this.getClass().getClassLoader().getResource("log4j.properties").toExternalForm();
+        logger.info("Log4J path:"+log4jpath);
+        if (log4jpath.contains(".jar")) {//isRunningInShadedJar()
             logger.info("Avvio in shaded modejar: ");
             logger.info("Shaded war url "+ getShadedWarUrl() );
             _ctx.setWar(getShadedWarUrl());

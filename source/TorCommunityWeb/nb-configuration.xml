@@ -13,18 +13,7 @@ You can copy and paste the single properties, into the pom.xml file and the IDE 
 That way multiple projects can share the same settings (useful for formatting rules for example).
 Any value defined here will override the pom.xml file value but is only applicable to the current project.
 -->
-        <org-netbeans-modules-whitelist.whitelist-oracle>false</org-netbeans-modules-whitelist.whitelist-oracle>
+        <netbeans.hint.j2eeVersion>1.6-web</netbeans.hint.j2eeVersion>
+        <netbeans.deploy.on.save>false</netbeans.deploy.on.save>
     </properties>
-    <spring-data xmlns="http://www.netbeans.org/ns/spring-data/1">
-        <config-files>
-            <config-file>src/main/resources/applicationContext.xml</config-file>
-            <config-file>src/main/resources/webapp.xml</config-file>
-        </config-files>
-        <config-file-groups>
-            <config-file-group name="teetr">
-                <config-file>src/main/resources/applicationContext.xml</config-file>
-                <config-file>src/main/resources/webapp.xml</config-file>
-            </config-file-group>
-        </config-file-groups>
-    </spring-data>
 </project-shared-configuration>
