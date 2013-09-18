@@ -15,7 +15,7 @@
 
     </head>
     <body>
-        <form method="POST" action="<spring:url value="/web/makeaccountdo" />">
+        <form method="POST" action="<spring:url value="/makeaccountdo" />">
             Username:<input type="text" name="username" placeholder="username"/><br/>
             Password will be composed using all the next fields. The sum of the chars of all fields cannot be less than 20<br/>
             your favorate word:  <input type="text" name="password1" placeholder=""/><br/>

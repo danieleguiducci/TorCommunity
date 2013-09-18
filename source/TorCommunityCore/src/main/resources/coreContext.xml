@@ -33,7 +33,7 @@
     <bean id="mySessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.danieleguiducci.torcommunity.core.entity"/>
+        <property name="packagesToScan" value="com.torcommunity.core.entity"/>
         <property name="hibernateProperties">
             <value>
                 hibernate.dialect=org.hibernate.dialect.DerbyDialect
@@ -47,6 +47,6 @@
           p:sessionFactory-ref="mySessionFactory">
     </bean>
     
-    <context:component-scan base-package="com.danieleguiducci.torcommunity.core.dao.imp" />
-    <context:component-scan base-package="com.danieleguiducci.torcommunity.core.service"  />
+    <context:component-scan base-package="com.torcommunity.core.dao.imp" />
+    <context:component-scan base-package="com.torcommunity.core.service"  />
 </beans>

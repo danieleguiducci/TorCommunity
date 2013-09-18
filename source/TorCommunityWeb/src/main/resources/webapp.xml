@@ -13,7 +13,7 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
     
     <mvc:annotation-driven />
-    <context:component-scan base-package="com.danieleguiducci.torcommunity.web.controller" />
+    <context:component-scan base-package="com.torcommunity.web.controller" />
     <mvc:resources mapping="/css/**" location="/css/" /> 
     <mvc:resources mapping="/js/**" location="/js/" /> 
 

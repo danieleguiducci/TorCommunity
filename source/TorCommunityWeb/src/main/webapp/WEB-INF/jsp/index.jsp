@@ -16,8 +16,8 @@
 
     </head>
     <body>
-        <a href="<spring:url value="/web/makeaccount"/>">Make a new Account</a><br/>
-
+        <a href="<spring:url value="/makeaccount"/>">Make a new Account</a><br/>
+        dom: <c:out value="${dominio}"/>
 
     </body>
 </html>

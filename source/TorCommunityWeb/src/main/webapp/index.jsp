@@ -17,8 +17,9 @@
         <div id="mainblock">
         <h2 style="margin:auto">TorCommunity Prototype</h2>
         <p>TorCommunity is still in developement, please, don't use it in productio.</p>
-        <a href="<spring:url value="/web/login"/>">Login</a><br/>
-        <a href="<spring:url value="/web/makeaccount"/>">Make a new Account</a><br/>
+        
+        <a href="<spring:url value="/login"/>">Login</a><br/>
+        <a href="<spring:url value="/makeaccount"/>">Make a new Account</a><br/>
         </div>
 
     </body>
