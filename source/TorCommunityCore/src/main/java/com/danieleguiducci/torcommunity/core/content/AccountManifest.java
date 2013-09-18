@@ -17,7 +17,16 @@ public class AccountManifest implements Serializable{
     private byte[] password;
     private byte[] encPrivateKey;
     private byte[] accountSecretId;
+    private byte[] domainSid;
 
+    public byte[] getDomainSid() {
+        return domainSid;
+    }
+
+    public void setDomainSid(byte[] domainSid) {
+        this.domainSid = domainSid;
+    }
+    
     public byte[] getAccountSecretId() {
         return accountSecretId;
     }

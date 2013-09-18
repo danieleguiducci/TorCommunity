@@ -62,6 +62,7 @@ public class AccountServiceImp implements AccountService {
     @Override
     public Account createNewAccount(String username, String userPassword) throws CreationAccountException {
         try {
+            MessageDigest digest = digestUtil.getSha1();
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("EC");
             keyGen.initialize(224);
             KeyPair paio = keyGen.genKeyPair();
@@ -72,8 +73,8 @@ public class AccountServiceImp implements AccountService {
             manifest.setEncPrivateKey(cripta(paio.getPrivate(), manifest.getCreatedTime(), userPassword));
             manifest.setPublicKey(paio.getPublic().getEncoded());
             manifest.setUserName(username);
-            manifest.setAccountSecretId(generateSecretId(username,userPassword));
-
+            manifest.setAccountSecretId(generateSecretId((username+"CONCAT"+userPassword).getBytes()));
+            manifest.setDomainSid(digestUtil.generatePublicSid(generateSecretId(paio.getPrivate().getEncoded())));
             byte[] rawManifest = manifestBuilder.serializa(manifest);
 
             Signature dsa = Signature.getInstance("SHA1withECDSA");
@@ -83,8 +84,10 @@ public class AccountServiceImp implements AccountService {
             Account account = new Account();
             account.setAccountManifest(rawManifest);
             account.setSignature(dsa.sign());
-            account.setHash(digestUtil.getSha1().digest(rawManifest));
+            byte[] msgHash=digestUtil.getSha1().digest(rawManifest);
+            account.setHash(msgHash);
             account.setAccountSecretId(manifest.getAccountSecretId());
+            account.setPublicDomain(digestUtil.domainSid2publicDomain(manifest.getDomainSid(), msgHash));
             accountDao.insert(account);
             //manifest.set
             return account;
@@ -104,11 +107,13 @@ public class AccountServiceImp implements AccountService {
         return cipher.doFinal(privKey.getEncoded());
     }
 
-    private byte[] generateSecretId(String username, String userPassword) {
+    private byte[] generateSecretId(byte[] item) {
         MessageDigest digest = digestUtil.getSha1();
         for (int i = 0; i < 100000; i++) {
-            byte[] tmp = digest.digest((username + "#.#" + userPassword + i).getBytes());
+            
+            byte[] tmp = digest.digest(item);
             digest.update(tmp);
+            digest.update(("SALTO"+i).getBytes());
         }
         byte[] encPassword = digest.digest();
         return encPassword;

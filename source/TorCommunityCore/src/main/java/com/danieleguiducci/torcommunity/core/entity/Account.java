@@ -20,7 +20,7 @@ import org.hibernate.annotations.Index;
  * @author Daniele
  */
 @Entity
-@Table(uniqueConstraints=@UniqueConstraint(columnNames = {"hash"}))
+@Table(uniqueConstraints={@UniqueConstraint(columnNames = {"hash"})})
 public class Account implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
@@ -37,6 +37,20 @@ public class Account implements Serializable{
     @Index(name = "idxAccountSecretId")
     private byte[] accountSecretId;
 
+    @Index(name="idxAccountPublicDomain")
+    private byte[] publicDomain;
+
+    public byte[] getPublicDomain() {
+        return publicDomain;
+    }
+
+    public void setPublicDomain(byte[] publicDomain) {
+        this.publicDomain = publicDomain;
+    }
+    
+    
+
+    
     public byte[] getAccountSecretId() {
         return accountSecretId;
     }
