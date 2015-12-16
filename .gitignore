@@ -1,2 +1,7 @@
 /source/TorCommunityWeb/target/
 */databaseDerby/*
+/TorCom/.nb-gradle/
+/TorCom/build/
+.idea
+.vertx
+.gradle
