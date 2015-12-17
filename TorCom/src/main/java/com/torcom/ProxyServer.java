@@ -20,10 +20,10 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import io.vertx.ext.web.handler.VirtualHostHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
@@ -34,7 +34,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ProxyServer extends AbstractVerticle {
-
+    protected static Logger logger = LoggerFactory.getLogger(ProxyServer.class);
     @Value("${localproxy.port}")
     private int localproxyPort;
     @Autowired
@@ -50,6 +50,7 @@ public class ProxyServer extends AbstractVerticle {
 
     @Override
     public void start() throws Exception {
+        logger.info("Vertx starting configuration");
         Router router = Router.router(vertx);
 
         // Serve the static pages

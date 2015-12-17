@@ -51,6 +51,8 @@ dependencies {
     compile 'commons-codec:commons-codec:1.10'
     compile 'org.liquibase:liquibase-core:3.4.2'
     compile 'org.apache.commons:commons-dbcp2:2.1.1'
+    compile 'org.bouncycastle:bcprov-jdk15on:1.53'
+
 
 
 

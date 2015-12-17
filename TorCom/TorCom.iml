@@ -56,5 +56,6 @@
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-juli:8.0.28" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-tx:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.derby:derby:10.12.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.53" level="project" />
   </component>
 </module>
