@@ -1,4 +1,4 @@
-package com.torcom.crypto;
+package com.torcom.service.crypto;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

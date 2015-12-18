@@ -5,12 +5,11 @@
  */
 package com.torcom;
 
-import com.torcom.admin.AdminCtrl;
-import com.torcom.api.CommunityCtrl;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.torcom.web.admin.AdminCtrl;
+import com.torcom.web.api.CommunityCtrl;
 import io.vertx.core.AbstractVerticle;
-import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
-import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.net.NetSocket;
 import io.vertx.core.streams.Pump;
 import io.vertx.ext.web.Router;
@@ -22,6 +21,7 @@ import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 
 import io.vertx.ext.web.handler.VirtualHostHandler;
+import org.msgpack.jackson.dataformat.MessagePackFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -154,7 +154,6 @@ public class ProxyServer extends AbstractVerticle {
 
             });
         }).listen(localproxyPort);
-
     }
 
     final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();

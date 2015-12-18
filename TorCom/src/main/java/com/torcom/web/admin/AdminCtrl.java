@@ -1,9 +1,9 @@
-package com.torcom.admin;
+package com.torcom.web.admin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.torcom.Const;
-import com.torcom.crypto.CryptoUtil;
+import com.torcom.service.crypto.CryptoUtil;
+import com.torcom.service.serialization.JsonObjectMapper;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerResponse;
@@ -25,7 +25,9 @@ public class AdminCtrl {
     @Autowired
     private CryptoUtil cryptoUtil;
 
-    private ObjectMapper mapper=new ObjectMapper();
+    @Autowired
+    private JsonObjectMapper mapper;
+
     public void getName(RoutingContext ctx) {
         ctx.response().end("GET NAME CHIAMAT");
     }

@@ -27,8 +27,6 @@
     <orderEntry type="library" name="Gradle: io.netty:netty-transport:4.0.31.Final" level="project" />
     <orderEntry type="library" name="Gradle: io.netty:netty-handler:4.0.31.Final" level="project" />
     <orderEntry type="library" name="Gradle: io.netty:netty-codec-http:4.0.31.Final" level="project" />
-    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.6.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.6.1" level="project" />
     <orderEntry type="library" name="Gradle: io.vertx:vertx-auth-common:3.1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-beans:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.2.3.RELEASE" level="project" />
@@ -57,5 +55,13 @@
     <orderEntry type="library" name="Gradle: org.springframework:spring-tx:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.derby:derby:10.12.1.1" level="project" />
     <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.53" level="project" />
+    <orderEntry type="library" name="Gradle: org.msgpack:jackson-dataformat-msgpack:0.7.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.msgpack:msgpack:0.6.12" level="project" />
+    <orderEntry type="library" name="Gradle: org.msgpack:msgpack-core:0.7.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.javassist:javassist:3.18.1-GA" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.6.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.6.4" level="project" />
   </component>
 </module>
