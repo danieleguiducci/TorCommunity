@@ -5,8 +5,8 @@
  */
 package com.torcom;
 
-import com.torcom.web.admin.AdminCtrl;
-import com.torcom.web.api.CommunityCtrl;
+import com.torcom.web.AdminWebApiCtrl;
+import com.torcom.web.CommunityWebApiCtrl;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.net.NetSocket;
@@ -31,16 +31,16 @@ import org.springframework.stereotype.Component;
  * @author daniele
  */
 @Component
-public class ProxyServer extends AbstractVerticle {
-    protected static Logger logger = LoggerFactory.getLogger(ProxyServer.class);
+public class ProxyConfigurer extends AbstractVerticle {
+    protected static Logger logger = LoggerFactory.getLogger(ProxyConfigurer.class);
     @Value("${localproxy.port}")
     private int localproxyPort;
     @Autowired
     private ApplicationContext context;
     @Autowired
-    private AdminCtrl adminCtrl;
+    private AdminWebApiCtrl adminCtrl;
     @Autowired
-    private CommunityCtrl communityCtrl;
+    private CommunityWebApiCtrl communityCtrl;
 
     private static class Status {
         private int stato = 0;

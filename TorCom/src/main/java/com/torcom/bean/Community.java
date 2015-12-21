@@ -11,11 +11,14 @@ public class Community {
     private PublicKey pubKey;
     private PrivateKey privKey;
     private Instant creationDate;
-    private byte[]  publicSid;
+    private PublicSid  publicSid;
     private String privateDomain;
     private PublicDomain publicDomain;
 
-    public Community(PublicKey pubKey, PrivateKey privKey, Instant creationDate, byte[] publicSid, String privateDomain,PublicDomain publicDomain) {
+    public Community(PublicKey pubKey, PrivateKey privKey, Instant creationDate, PublicSid publicSid, String privateDomain,PublicDomain publicDomain) {
+        if(privateDomain.length()!=24) {
+            throw new IllegalArgumentException("Private domain length not valid:"+privateDomain);
+        }
         this.pubKey = pubKey;
         this.privKey = privKey;
         this.creationDate = creationDate;
@@ -24,7 +27,7 @@ public class Community {
         this.publicDomain=publicDomain;
     }
 
-    public static Community create(PublicKey pubKey, PrivateKey privKey, Instant creationDate, byte[] publicSid, String privateDomain,PublicDomain publicDomain) {
+    public static Community create(PublicKey pubKey, PrivateKey privKey, Instant creationDate, PublicSid publicSid, String privateDomain,PublicDomain publicDomain) {
         return new Community(pubKey,privKey,creationDate,publicSid,privateDomain,publicDomain);
     }
 
@@ -40,7 +43,7 @@ public class Community {
         return creationDate;
     }
 
-    public byte[] getPublicSid() {
+    public PublicSid getPublicSid() {
         return publicSid;
     }
 

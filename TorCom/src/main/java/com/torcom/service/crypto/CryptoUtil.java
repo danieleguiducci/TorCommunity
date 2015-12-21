@@ -7,6 +7,7 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 
 import com.torcom.bean.PublicDomain;
+import com.torcom.bean.PublicSid;
 import org.apache.commons.codec.binary.Base32;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Service;
@@ -31,13 +32,13 @@ public class CryptoUtil implements InitializingBean {
         BigInteger privateDomain=s.modPow(msgHashInt, p);
         return base32.encodeAsString(zeroPad(privateDomain.toByteArray(), urlLength));
     }
-    public byte[] generatePublicSid(byte[] digestPrivateKey) {
+    public PublicSid generatePublicSid(byte[] digestPrivateKey) {
         if(digestPrivateKey.length!=20) {
             throw new IllegalArgumentException("Size of digest must be 20byte");
         }
         BigInteger s=new BigInteger(digestPrivateKey);
         BigInteger publicSidInt=s.modPow(g, p);
-        return zeroPad(publicSidInt.toByteArray(), urlLength);
+        return PublicSid.create(zeroPad(publicSidInt.toByteArray(), urlLength));
     }
     public PublicDomain privateDomain2publicDomain(String base32Domain) {
         BigInteger privateDomainInt=new BigInteger(base32.decode(base32Domain));
@@ -45,11 +46,9 @@ public class CryptoUtil implements InitializingBean {
         return PublicDomain.create(zeroPad(publicDomainInt.toByteArray(), urlLength));
     }
 
-    public PublicDomain domainSid2publicDomain(byte[] domainSid, byte msgHash[]) {
-        if (domainSid.length != urlLength) {
-            throw new IllegalArgumentException("Size of sid must be " + urlLength);
-        }
-        BigInteger domainSidInt = new BigInteger(domainSid);
+    public PublicDomain domainSid2publicDomain(PublicSid domainSid, byte msgHash[]) {
+
+        BigInteger domainSidInt = domainSid.getAsBigint();
         if(domainSidInt.signum()!=1 && domainSidInt.equals(BigInteger.ONE)) {
             throw new IllegalArgumentException("Illegal domainSid param");
         }

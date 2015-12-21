@@ -1,5 +1,6 @@
 package com.torcom.bean;
 
+import com.torcom.Const;
 import org.apache.commons.codec.binary.Base32;
 import org.bouncycastle.util.Arrays;
 
@@ -14,12 +15,18 @@ public class PublicDomain {
     private String publicDomainString;
 
     private PublicDomain(byte[] data) {
+        if(data.length!= Const.PUBLIC_DOMAIN_LENGTH) {
+            throw new IllegalArgumentException("Public domain langth must be "+Const.PUBLIC_DOMAIN_LENGTH);
+        }
         this.publicDomain=data;
         publicDomainString=base32.encodeAsString(data);
     }
 
     public static PublicDomain create(byte[] publicDomain) {
         return new PublicDomain(publicDomain);
+    }
+    public static PublicDomain create(String publicDomain) {
+        return create(base32.decode(publicDomain));
     }
     public byte[] getRaw() {
         return Arrays.clone(publicDomain);

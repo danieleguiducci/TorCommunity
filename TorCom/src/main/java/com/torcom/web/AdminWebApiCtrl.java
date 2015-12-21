@@ -1,11 +1,10 @@
-package com.torcom.web.admin;
+package com.torcom.web;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.torcom.CommunitySet;
 import com.torcom.bean.Community;
 import com.torcom.controller.NewCommunityCtrl;
 import com.torcom.service.serialization.JsonObjectMapper;
-import com.torcom.web.api.CommunityCtrl;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerResponse;
@@ -22,9 +21,9 @@ import java.security.*;
  * Created by daniele on 16/12/2015.
  */
 @Controller
-public class AdminCtrl {
+public class AdminWebApiCtrl {
 
-    protected static Logger logger = LoggerFactory.getLogger(AdminCtrl.class);
+    protected static Logger logger = LoggerFactory.getLogger(AdminWebApiCtrl.class);
 
     @Autowired
     private JsonObjectMapper mapper;
@@ -45,7 +44,7 @@ public class AdminCtrl {
             resp.putHeader("content-type","application/json");
 
             Community com= newComCtrl.newCommunity();
-            comCtrl.getOrStart(com.getPublicDomain());
+
             CreateCommunityResp respObj=new CreateCommunityResp();
 
             resp.end(mapper.writeValueAsString(respObj));

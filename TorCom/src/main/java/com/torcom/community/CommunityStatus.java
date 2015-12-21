@@ -25,6 +25,6 @@ public class CommunityStatus implements InitializingBean{
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.info("Community "+publicDomain+" started!");
+        log.info("Community PublicDomain:"+publicDomain+" started!");
     }
 }

@@ -5,5 +5,6 @@ package com.torcom;
  */
 public class Const {
     public final static String TLD_SELF="noino";
+    public final static int PUBLIC_DOMAIN_LENGTH =15;
 
 }
