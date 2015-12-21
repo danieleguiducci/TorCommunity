@@ -1,18 +1,14 @@
 package com.torcom;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.torcom.service.serialization.JsonObjectMapper;
 import io.vertx.core.Vertx;
-import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import liquibase.integration.spring.SpringLiquibase;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.msgpack.jackson.dataformat.MessagePackFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,14 +16,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.security.Security;
-import java.time.Instant;
-import java.time.OffsetDateTime;
+import java.time.Clock;
 
 @SpringBootApplication
 @EnableTransactionManagement
+@ComponentScan(basePackages = "com.torcom",excludeFilters =  @ComponentScan.Filter(pattern = "com.torcom.community.*", type = FilterType.REGEX))
 public class Boot implements InitializingBean{
     protected static Logger logger = LoggerFactory.getLogger(Boot.class);
     @Value("${port}")
@@ -49,11 +47,11 @@ public class Boot implements InitializingBean{
         SpringApplication.run(Boot.class, args);
     }
 
-    @PostConstruct
-    public void deployVerticle() {
-       // Vertx.vertx().deployVerticle(staticServer);
-
+    @Bean
+    public Clock clock() {
+        return Clock.systemUTC();
     }
+
     @Bean
     @ConfigurationProperties("liquibase")
     public SpringLiquibase liquibase() {

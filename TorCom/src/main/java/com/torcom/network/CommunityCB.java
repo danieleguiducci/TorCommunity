@@ -1,4 +1,4 @@
-package com.torcom.contrib;
+package com.torcom.network;
 
 /**
  * Created by daniele on 17/12/2015.

@@ -1,4 +1,4 @@
-package com.torcom.contrib;
+package com.torcom.network;
 
 import java.time.Instant;
 

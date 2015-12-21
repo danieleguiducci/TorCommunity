@@ -5,7 +5,6 @@
  */
 package com.torcom;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.torcom.web.admin.AdminCtrl;
 import com.torcom.web.api.CommunityCtrl;
 import io.vertx.core.AbstractVerticle;
@@ -21,7 +20,6 @@ import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 
 import io.vertx.ext.web.handler.VirtualHostHandler;
-import org.msgpack.jackson.dataformat.MessagePackFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

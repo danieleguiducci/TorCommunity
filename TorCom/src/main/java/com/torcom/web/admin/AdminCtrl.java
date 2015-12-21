@@ -1,9 +1,11 @@
 package com.torcom.web.admin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.torcom.Const;
-import com.torcom.service.crypto.CryptoUtil;
+import com.torcom.CommunitySet;
+import com.torcom.bean.Community;
+import com.torcom.controller.NewCommunityCtrl;
 import com.torcom.service.serialization.JsonObjectMapper;
+import com.torcom.web.api.CommunityCtrl;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerResponse;
@@ -21,12 +23,17 @@ import java.security.*;
  */
 @Controller
 public class AdminCtrl {
+
     protected static Logger logger = LoggerFactory.getLogger(AdminCtrl.class);
-    @Autowired
-    private CryptoUtil cryptoUtil;
 
     @Autowired
     private JsonObjectMapper mapper;
+
+    @Autowired
+    private NewCommunityCtrl newComCtrl;
+
+    @Autowired
+    private CommunitySet comCtrl;
 
     public void getName(RoutingContext ctx) {
         ctx.response().end("GET NAME CHIAMAT");
@@ -36,19 +43,10 @@ public class AdminCtrl {
         try {
 
             resp.putHeader("content-type","application/json");
-            KeyPairGenerator keyGen = null;
-            keyGen = KeyPairGenerator.getInstance("EC");
-            SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
 
-            keyGen.initialize(256, random);
-
-            KeyPair pair = keyGen.generateKeyPair();
-            PrivateKey priv = pair.getPrivate();
-            PublicKey pub = pair.getPublic();
-            MessageDigest md=MessageDigest.getInstance("sha1");
-            byte[] privKeySha= md.digest(priv.getEncoded());
+            Community com= newComCtrl.newCommunity();
+            comCtrl.getOrStart(com.getPublicDomain());
             CreateCommunityResp respObj=new CreateCommunityResp();
-            respObj.url=cryptoUtil.generatePrivateDomain("Hash of the account ".getBytes(),privKeySha)+"."+ Const.TLD_SELF;
 
             resp.end(mapper.writeValueAsString(respObj));
         } catch (NoSuchAlgorithmException| JsonProcessingException e) {
