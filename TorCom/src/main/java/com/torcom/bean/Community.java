@@ -1,5 +1,7 @@
 package com.torcom.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.time.Instant;
@@ -9,6 +11,7 @@ import java.time.Instant;
  */
 public class Community {
     private PublicKey pubKey;
+    @JsonIgnore
     private PrivateKey privKey;
     private Instant creationDate;
     private PublicSid  publicSid;

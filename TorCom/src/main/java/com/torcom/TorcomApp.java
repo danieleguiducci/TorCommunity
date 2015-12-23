@@ -57,6 +57,7 @@ public class TorcomApp implements InitializingBean{
         sl.setChangeLog("classpath:db-changes.xml");
         sl.setDataSource(dataSource);
         sl.setContexts("production");
+        sl.setShouldRun(false);
         return sl;
     }
 

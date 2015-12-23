@@ -48,7 +48,7 @@ public class AdminWebApiCtrl {
             CreateCommunityResp respObj=new CreateCommunityResp();
 
             resp.end(mapper.writeValueAsString(respObj));
-        } catch (NoSuchAlgorithmException| JsonProcessingException e) {
+        } catch (NoSuchAlgorithmException| JsonProcessingException | SecurityException | SignatureException | InvalidKeyException e) {
             logger.error("Error during creation of key",e);
             resp.setStatusCode(500).end();
         }

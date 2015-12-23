@@ -2,7 +2,7 @@
 */databaseDerby/*
 /TorCom/.nb-gradle/
 /TorCom/build/
-/TorCom/data/
+/TorCom/database/
 .idea
 .vertx
 .gradle

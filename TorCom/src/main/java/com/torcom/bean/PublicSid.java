@@ -1,5 +1,7 @@
 package com.torcom.bean;
 
+import org.bouncycastle.util.Arrays;
+
 import java.math.BigInteger;
 import java.util.Objects;
 
@@ -18,6 +20,9 @@ public class PublicSid {
         return new PublicSid(data);
     }
 
+    public byte[] getPublicSid() {
+        return Arrays.clone(publicSid);
+    }
     public BigInteger getAsBigint() {
         if(publicSidInt==null) {
             synchronized (this) {
