@@ -1,82 +1,66 @@
 package com.torcom.service.crypto;
 
+import com.torcom.Const;
+import com.torcom.bean.Domain;
+import com.torcom.bean.PublicId;
+import com.torcom.bean.PublicSid;
+import com.torcom.db.main.AccountRow;
+import org.apache.commons.codec.binary.Base32;
+import org.springframework.stereotype.Service;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-
-import com.torcom.bean.PublicDomain;
-import com.torcom.bean.PublicSid;
-import org.apache.commons.codec.binary.Base32;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Service;
+import java.security.PrivateKey;
 
 /**
  * Created by daniele on 16/12/2015.
  */
 @Service
-public class CryptoUtil implements InitializingBean {
+public class CryptoUtil {
 
-    private static final  Base32 base32 = new Base32();
-    private static final  int urlLength = 15; //byte length for the domain url
-    private static final BigInteger p = new BigInteger("664613289774299686251799582567060777");
-    private static final  BigInteger g=new BigInteger("41490204059424128096426867114102659947841876679151357761978796873944950447065614456380480581212536433064216635941802041452828290049538333005093884826376264772329615288079904057520058063070530292089866748064521794003036684496365588213955135836794623103193842561629667766496440882516264767818073403794920049640119708063472189782392119310784931349474834475487043709649127057616104124225925729896565185037810505186125906457648308209342274928188263782216405511572747230778359569534740627");
+    private static final Base32 base32 = new Base32();
+    private static final int urlLength = Const.PUBLIC_DOMAIN_LENGTH; //byte length for the domain url
+    private static final BigInteger p = new BigInteger("730750568290937136971131182712229683171787815699");
+    private static final BigInteger g = new BigInteger("41490204059424128096426867114102659947841876679151357761978796873944950447065614456380480581212536433064216635941802041452828290049538333005093884826376264772329615288079904057520058063070530292089866748064521794003036684496365588213955135836794623103193842561629667766496440882516264767818073403794920049640119708063472189782392119310784931349474834475487043709649127057616104124225925729896565185037810505186125906457648308209342274928188263782216405511572747230778359569534740627");
 
-    public String generatePrivateDomain(byte[] digestPrivateKey, byte msgHash[]) {
-        if(digestPrivateKey.length!=20 || msgHash.length!=20) {
-            throw new IllegalArgumentException("Size of digestPrivKey and msghash must be 20byte");
+    public Domain generatePrivateDomain(AccountRow accountRow) throws NoSuchAlgorithmException {
+        byte[] hash = MessageDigest.getInstance(Const.DIGEST_FUNCTION).digest(accountRow.getRawData());
+        byte[] privHash = MessageDigest.getInstance(Const.DIGEST_FUNCTION).digest(accountRow.getPrivateKey());
+        BigInteger s = new BigInteger(privHash);
+        BigInteger msgHashInt = new BigInteger(hash);
+        BigInteger privateDomain = s.modPow(msgHashInt, p);
+        if(privateDomain.toByteArray().length != urlLength) {
+            throw new IllegalStateException("Domain size is wrong "+privateDomain.toByteArray().length );
         }
-        BigInteger s=new BigInteger(digestPrivateKey);
-        BigInteger msgHashInt = new BigInteger(msgHash);
-        BigInteger privateDomain=s.modPow(msgHashInt, p);
-        return base32.encodeAsString(zeroPad(privateDomain.toByteArray(), urlLength));
+        return new Domain(privateDomain.toByteArray());
     }
-    public PublicSid generatePublicSid(byte[] digestPrivateKey) {
-        if(digestPrivateKey.length!=20) {
-            throw new IllegalArgumentException("Size of digest must be 20byte");
+
+    public PublicSid generatePublicSid(PrivateKey privateKey) throws NoSuchAlgorithmException {
+        byte[] digestPrivateKey = MessageDigest.getInstance(Const.DIGEST_FUNCTION).digest(privateKey.getEncoded());
+        BigInteger s = new BigInteger(digestPrivateKey);
+        BigInteger publicSidInt = s.modPow(g, p);
+        if(publicSidInt.toByteArray().length != urlLength) {
+            throw new IllegalStateException("PublicSid size is wrong "+publicSidInt.toByteArray().length );
         }
-        BigInteger s=new BigInteger(digestPrivateKey);
-        BigInteger publicSidInt=s.modPow(g, p);
-        return PublicSid.create(zeroPad(publicSidInt.toByteArray(), urlLength));
-    }
-    public PublicDomain privateDomain2publicDomain(String base32Domain) {
-        BigInteger privateDomainInt=new BigInteger(base32.decode(base32Domain));
-        BigInteger publicDomainInt=privateDomainInt.modPow(g, p);
-        return PublicDomain.create(zeroPad(publicDomainInt.toByteArray(), urlLength));
+        return PublicSid.create(publicSidInt.toByteArray());
     }
 
-    public PublicDomain domainSid2publicDomain(PublicSid domainSid, byte msgHash[]) {
+    public PublicId privateDomain2publicDomain(Domain domain) {
+        BigInteger privateDomainInt = new BigInteger(domain.getDomain());
+        BigInteger publicDomainInt = privateDomainInt.modPow(g, p);
+        return PublicId.create(zeroPad(publicDomainInt.toByteArray(), urlLength));
+    }
 
+    public PublicId domainSid2publicDomain(PublicSid domainSid, AccountRow accountRow) throws NoSuchAlgorithmException {
+        byte[] hash = MessageDigest.getInstance(Const.DIGEST_FUNCTION).digest(accountRow.getRawData());
         BigInteger domainSidInt = domainSid.getAsBigint();
-        if(domainSidInt.signum()!=1 && domainSidInt.equals(BigInteger.ONE)) {
+        if (domainSidInt.signum() != 1 && domainSidInt.toByteArray().length != urlLength) {
             throw new IllegalArgumentException("Illegal domainSid param");
         }
-        BigInteger msgHashInt = new BigInteger(msgHash);
-        BigInteger publicDomainInt=domainSidInt.modPow(msgHashInt, p);
-        return PublicDomain.create(zeroPad(publicDomainInt.toByteArray(), urlLength)) ;
-    }
-
-    public MessageDigest getSha1() {
-        try {
-            return MessageDigest.getInstance("sha1");
-        } catch (NoSuchAlgorithmException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
-    public Cipher getAesCbcPkcs5Padding() {
-        try {
-            return Cipher.getInstance("AES/CBC/PKCS5Padding");
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        MessageDigest.getInstance("sha1"); //If sha1 is not present go out @ the init process
-        Cipher.getInstance("AES/CBC/PKCS5Padding");
+        BigInteger msgHashInt = new BigInteger(hash);
+        BigInteger publicDomainInt = domainSidInt.modPow(msgHashInt, p);
+        return PublicId.create(zeroPad(publicDomainInt.toByteArray(), urlLength));
     }
 
     private static byte[] zeroPad(byte[] data, int minSize) {

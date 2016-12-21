@@ -3,7 +3,7 @@ package com.torcom.db.main;
 /**
  * Created by daniele on 17/12/2015.
  */
-public class CommunityRow {
+public class AccountRow {
     private Long rowid;
     private String publicDomain;
     private byte[] rawData;

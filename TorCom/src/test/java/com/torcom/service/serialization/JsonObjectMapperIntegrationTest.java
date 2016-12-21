@@ -52,15 +52,21 @@ public class JsonObjectMapperIntegrationTest {
 
         TestObj testObj = new TestObj();
         testObj.pubKey = pk;
+        testObj.now = Instant.now();
+
         String pkJson = mapper.writeValueAsString(testObj);
         log.info("Public Key " + pkJson);
         log.info("PublicKey Size:" + pkJson.length());
         TestObj pk2 = mapper.readValue(pkJson, TestObj.class);
         assertEquals(pkJson, mapper.writeValueAsString(testObj));
 
-        //byte[] pkByte = msgPackMapper.writeValueAsBytes(testObj);
+        byte[] pkByte = msgPackMapper.writeValueAsBytes(testObj);
+        System.out.println(pkByte.length);
+        TestObj pk3 = msgPackMapper.readValue(pkByte, TestObj.class);
+        System.out.println(pk3.pubKey.getEncoded().length);
+        System.out.println(new String(pkByte));
         //log.info("PublicKey Size msgPack:" + pkByte.length);
-        //TestObj pk3 = msgPackMapper.readValue(pkByte, TestObj.class);
+        //
         //assertEquals(pkByte, mapper.writeValueAsBytes(pk3));
 
 
@@ -68,5 +74,6 @@ public class JsonObjectMapperIntegrationTest {
 
     public static class TestObj {
         public PublicKey pubKey;
+        public Instant now;
     }
 }

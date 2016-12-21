@@ -2,13 +2,14 @@ package com.torcom.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.torcom.CommunitySet;
-import com.torcom.bean.Community;
-import com.torcom.bean.PublicDomain;
+import com.torcom.bean.Domain;
+import com.torcom.bean.PublicId;
 import com.torcom.bean.PublicSid;
-import com.torcom.db.main.CommunityDao;
-import com.torcom.db.main.CommunityRow;
+import com.torcom.db.main.AccountDao;
+import com.torcom.db.main.AccountIos;
+import com.torcom.db.main.AccountRow;
 import com.torcom.service.crypto.CryptoUtil;
-import com.torcom.service.serialization.JsonObjectMapper;
+import com.torcom.service.serialization.MsgPackMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,45 +37,49 @@ public class NewCommunityCtrl {
     private CommunitySet comCtrl;
 
     @Autowired
-    private JsonObjectMapper jsonObjectMapper;
+    private MsgPackMapper mapper;
 
     @Autowired
-    private CommunityDao communityDao;
+    private AccountDao accountDao;
 
-    public Community newCommunity() throws NoSuchAlgorithmException, InvalidKeyException, JsonProcessingException, SignatureException {
+    public void newCommunity() throws NoSuchAlgorithmException, InvalidKeyException, JsonProcessingException, SignatureException {
         log.info("Creation of a new community....");
-        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("EC");
-        SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
-        keyGen.initialize(256, random);
+        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA");
+        keyGen.initialize(256);
         KeyPair pair = keyGen.generateKeyPair();
         PrivateKey priv = pair.getPrivate();
         PublicKey pub = pair.getPublic();
-        MessageDigest md=MessageDigest.getInstance("sha1");
-        byte[] privKeySha= md.digest(priv.getEncoded());
+        AccountIos accountIos = new AccountIos();
+        accountIos.setPublicKey(pub.getEncoded());
+        accountIos.setCreationDate(Instant.now());
+        PublicSid publicSid = cryptoUtil.generatePublicSid(priv);
+        accountIos.setPublicSid(publicSid.toByteArray());
 
-        String privDomain=cryptoUtil.generatePrivateDomain(privKeySha,privKeySha);
-        PublicSid pubSid=cryptoUtil.generatePublicSid(privKeySha);
-        PublicDomain pubicDomain=cryptoUtil.privateDomain2publicDomain(privDomain);
-        Community com= Community.create(pub,priv, Instant.now(clock),pubSid,privDomain,pubicDomain);
+        AccountRow accountRow = new AccountRow();
+        accountRow.setRawData(mapper.writeValueAsBytes(accountIos));
+        accountRow.setPrivateKey(priv.getEncoded());
 
-        byte[] rawElement=jsonObjectMapper.writeValueAsBytes(com);
+        Signature sign = Signature.getInstance("ECDSA");
+        sign.initSign(priv);
+        sign.update(accountRow.getRawData());
+        byte[] signature = sign.sign();
+        accountRow.setSignature(signature);
+        sign.initVerify(pub);
+        sign.update(accountRow.getRawData());
+        sign.verify(accountRow.getSignature());
 
-        Signature sign=Signature.getInstance("ECDSA");
-        sign.initSign(com.getPrivKey());
-        sign.update(rawElement);
-        byte[] signature=sign.sign();
+        Domain domain =  cryptoUtil.generatePrivateDomain(accountRow);
 
-        CommunityRow comRow=new CommunityRow();
-        comRow.setPrivateKey(com.getPrivKey().getEncoded());
-        comRow.setPublicDomain(com.getPublicDomain().getDomain());
-        comRow.setSignature(signature);
-        comRow.setRawData(rawElement);
+        PublicId publicId1 = cryptoUtil.privateDomain2publicDomain(domain);
+        PublicId publicId2 = cryptoUtil.domainSid2publicDomain(publicSid, accountRow);
+        if(!publicId2.equals(publicId1)) {
+            throw new IllegalStateException("publicId must be the same");
+        }
 
-        communityDao.insert(comRow);
-
-        comCtrl.getOrStart(com.getPublicDomain());
-        log.info("Community created and started. RawElementSize:"+rawElement.length);
-        return com;
+        //comCtrl.getOrStart(com.getPublicDomain());
+        log.info("Community created and started. RawElementSize:" + accountRow.getRawData().length);
+        log.info("Domain "+domain);
+        return;
     }
 
 }

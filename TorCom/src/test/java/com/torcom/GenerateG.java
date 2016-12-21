@@ -17,8 +17,8 @@ public class GenerateG {
         SecureRandom sr = new SecureRandom();
         BigInteger bigger = null;
         for(int i =0; i< 100000; i++) {
-            BigInteger integer = BigInteger.probablePrime(15*8-1, sr);
-            if(integer.toByteArray().length == 15) {
+            BigInteger integer = BigInteger.probablePrime(Const.PUBLIC_DOMAIN_LENGTH*8-1, sr);
+            if(integer.toByteArray().length == Const.PUBLIC_DOMAIN_LENGTH) {
                 if (bigger == null) {
                     bigger = integer;
                 } else if (integer.compareTo(bigger) == 1) {

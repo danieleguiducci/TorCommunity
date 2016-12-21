@@ -1,17 +1,13 @@
 package com.torcom;
 
-import com.torcom.bean.Community;
-import com.torcom.bean.PublicDomain;
+import com.torcom.bean.PublicId;
 import com.torcom.community.CommunityStatus;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.MutablePropertySources;
-import org.springframework.core.env.StandardEnvironment;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 
 import java.util.HashMap;
@@ -26,16 +22,16 @@ public class CommunitySet {
     @Autowired
     private ConfigurableApplicationContext context;
 
-    private Map<PublicDomain,ConfigurableApplicationContext> contexts=new ConcurrentHashMap<>();
+    private Map<PublicId,ConfigurableApplicationContext> contexts=new ConcurrentHashMap<>();
 
 
 
 
-    public CommunityStatus getOrStart(PublicDomain publicDomain) {
+    public CommunityStatus getOrStart(PublicId publicDomain) {
         ConfigurableApplicationContext con=startCommunity(publicDomain);
         return con.getBean(CommunityStatus.class);
     }
-    private synchronized void stopCommunity(PublicDomain publicDomain) {
+    private synchronized void stopCommunity(PublicId publicDomain) {
         if(!contexts.containsKey(publicDomain)) {
             return;
         }
@@ -44,7 +40,7 @@ public class CommunitySet {
         val.close();
         contexts.remove(publicDomain);
     }
-    private ConfigurableApplicationContext startCommunity(PublicDomain publicDomain) {
+    private ConfigurableApplicationContext startCommunity(PublicId publicDomain) {
         ConfigurableApplicationContext val=contexts.get(publicDomain);
         if(val!=null) {
             return val;
@@ -58,7 +54,7 @@ public class CommunitySet {
             ConfigurableEnvironment ce= con.getEnvironment();
             MutablePropertySources mps=ce.getPropertySources();
             Map myMap = new HashMap();
-            myMap.put("publicDomain", publicDomain.getDomain());
+            myMap.put("publicDomain", publicDomain.getPublicId());
             mps.addLast(new MapPropertySource("initData", myMap));
 
             con.setParent(context);

@@ -51,11 +51,11 @@ dependencies {
     compile group: 'com.mattbertolini', name: 'liquibase-slf4j', version: '2.0.0'
     compile 'org.apache.commons:commons-dbcp2:2.1.1'
     compile 'org.bouncycastle:bcprov-jdk15on:1.55'
-    compile 'org.msgpack:jackson-dataformat-msgpack:0.7.1'
+    compile 'org.msgpack:jackson-dataformat-msgpack:0.8.11'
     compile 'org.msgpack:msgpack:0.6.12'
-    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.4'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.5'
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
     compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.7'
-
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
 }

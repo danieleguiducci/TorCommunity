@@ -13,12 +13,12 @@ import java.sql.ResultSet;
  * Created by daniele on 17/12/2015.
  */
 @Service
-public class CommunityDao {
+public class AccountDao {
 
-    private static Logger logger = LogManager.getLogger(CommunityDao.class);
+    private static Logger logger = LogManager.getLogger(AccountDao.class);
 
     private RowMapper rowMapper = (ResultSet rs, int rowNum) ->{
-        CommunityRow book= new CommunityRow();
+        AccountRow book= new AccountRow();
         //book.setIsbn(rs.getString("isbn"));
         //book.setAutore(rs.getString("autore"));
         //book.setTitolo(rs.getString("titolo"));
@@ -27,8 +27,8 @@ public class CommunityDao {
     @Autowired
     private JdbcTemplate db;
 
-    public void insert(CommunityRow com) {
-        db.update("INSERT INTO community (publicdomain,signature,rawdata,privatekey) VALUES(?,?,?,?)",
+    public void insert(AccountRow com) {
+        db.update("INSERT INTO community (publicdomain, signature, rawdata, privatekey) VALUES(?,?,?,?)",
                 com.getPublicDomain(),com.getSignature(),com.getRawData(),com.getPrivateKey());
     }
 

@@ -2,7 +2,6 @@ package com.torcom.web;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.torcom.CommunitySet;
-import com.torcom.bean.Community;
 import com.torcom.controller.NewCommunityCtrl;
 import com.torcom.service.serialization.JsonObjectMapper;
 import io.vertx.core.Vertx;
@@ -15,7 +14,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.security.*;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SignatureException;
 
 /**
  * Created by daniele on 16/12/2015.
@@ -44,7 +45,7 @@ public class AdminWebApiCtrl {
 
             resp.putHeader("content-type", "application/json");
 
-            Community com = newComCtrl.newCommunity();
+            newComCtrl.newCommunity();
 
             CreateCommunityResp respObj = new CreateCommunityResp();
 

@@ -10,28 +10,21 @@ import java.util.Objects;
  */
 public class PublicSid {
     private byte[] publicSid;
-    private BigInteger publicSidInt=null;
+
     private PublicSid(byte[] publicSid) {
-        Objects.requireNonNull(publicSid,"PublicSid can't be null");
-        this.publicSid=publicSid;
+        Objects.requireNonNull(publicSid, "PublicSid can't be null");
+        this.publicSid = publicSid;
     }
 
     public static PublicSid create(byte[] data) {
         return new PublicSid(data);
     }
 
-    public byte[] getPublicSid() {
+    public byte[] toByteArray() {
         return Arrays.clone(publicSid);
     }
+
     public BigInteger getAsBigint() {
-        if(publicSidInt==null) {
-            synchronized (this) {
-                if (publicSidInt != null) {
-                    return publicSidInt;
-                }
-                publicSidInt = new BigInteger(publicSid);
-            }
-        }
-        return publicSidInt;
+        return new BigInteger(publicSid);
     }
 }

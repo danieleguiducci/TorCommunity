@@ -5,6 +5,8 @@ package com.torcom;
  */
 public class Const {
     public final static String TLD_SELF = "reign";
-    public final static int PUBLIC_DOMAIN_LENGTH = 15;
+    public final static int PUBLIC_DOMAIN_LENGTH = 20;
 
+
+    public final static String DIGEST_FUNCTION = "SHA3-224";
 }

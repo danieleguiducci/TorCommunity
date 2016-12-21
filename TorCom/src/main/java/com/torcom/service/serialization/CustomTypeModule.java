@@ -9,14 +9,11 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.torcom.bean.PublicDomain;
+import com.torcom.bean.PublicId;
 import com.torcom.bean.PublicSid;
 
 import java.io.IOException;
-import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
 
 /**
  * Created by daniele on 23/12/2015.
@@ -28,7 +25,7 @@ public class CustomTypeModule extends SimpleModule {
             @Override
             public void serialize(PublicSid value, JsonGenerator gen, SerializerProvider serializers)
                     throws IOException, JsonProcessingException {
-                gen.writeBinary(value.getPublicSid());
+                gen.writeBinary(value.toByteArray());
             }
         });
         this.addDeserializer(PublicSid.class, new JsonDeserializer<PublicSid>() {
@@ -37,16 +34,16 @@ public class CustomTypeModule extends SimpleModule {
                 return PublicSid.create(p.getBinaryValue());
             }
         });
-        this.addSerializer(PublicDomain.class, new JsonSerializer<PublicDomain>() {
+        this.addSerializer(PublicId.class, new JsonSerializer<PublicId>() {
             @Override
-            public void serialize(PublicDomain value, JsonGenerator gen, SerializerProvider serializers) throws IOException, JsonProcessingException {
-                gen.writeBinary(value.getRaw());
+            public void serialize(PublicId value, JsonGenerator gen, SerializerProvider serializers) throws IOException, JsonProcessingException {
+                gen.writeBinary(value.getBytes());
             }
         });
-        this.addDeserializer(PublicDomain.class, new JsonDeserializer<PublicDomain>() {
+        this.addDeserializer(PublicId.class, new JsonDeserializer<PublicId>() {
             @Override
-            public PublicDomain deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-                return PublicDomain.create(p.getBinaryValue());
+            public PublicId deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+                return PublicId.create(p.getBinaryValue());
             }
         });
     }
