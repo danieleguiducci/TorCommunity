@@ -20,8 +20,8 @@ import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 
 import io.vertx.ext.web.handler.VirtualHostHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
@@ -32,7 +32,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ProxyConfigurer extends AbstractVerticle {
-    protected static Logger logger = LoggerFactory.getLogger(ProxyConfigurer.class);
+    private static Logger log = LogManager.getLogger(ProxyConfigurer.class);
     @Value("${localproxy.port}")
     private int localproxyPort;
     @Autowired
@@ -48,29 +48,36 @@ public class ProxyConfigurer extends AbstractVerticle {
 
     @Override
     public void start() throws Exception {
-        logger.info("Vertx starting configuration");
+        log.info("Vertx starting configuration");
         Router router = Router.router(vertx);
 
         // Serve the static pages
         String adminDomain = "admin." + Const.TLD_SELF;
+        String testDomain = "www.test." + Const.TLD_SELF;
         Router adminRoute = adminCtrl.getRouter(vertx);
 
-        StaticHandler sh = StaticHandler.create()
-                .setDirectoryListing(false).setCachingEnabled(false)
-                .setWebRoot("./web/admin").setIndexPage("index.html");
+
         router.route().path("/api/*").handler(VirtualHostHandler.create(adminDomain, routingContext -> {
             adminRoute.handleContext(routingContext);
         }));
-        router.route().handler(VirtualHostHandler.create(adminDomain, sh));
+        StaticHandler adminStatic = StaticHandler.create()
+                .setDirectoryListing(false).setCachingEnabled(false)
+                .setWebRoot("public/admin").setIndexPage("index.html");
+        router.route().handler(VirtualHostHandler.create(adminDomain, adminStatic));
 
-        Router communityRouter=communityCtrl.getRouter(vertx);
+        StaticHandler staticPublicTest = StaticHandler.create()
+                .setDirectoryListing(false).setCachingEnabled(false)
+                .setWebRoot("public/test").setIndexPage("index.html");
+        router.route().handler(VirtualHostHandler.create(testDomain, staticPublicTest));
+
+        Router communityRouter = communityCtrl.getRouter(vertx);
         StaticHandler staticCommunity = StaticHandler.create()
                 .setDirectoryListing(false).setCachingEnabled(false)
-                .setWebRoot("./web/community").setIndexPage("index.html");
-        router.route().path("/api/*").handler(VirtualHostHandler.create("*."+Const.TLD_SELF, routingContext -> {
+                .setWebRoot("public/community").setIndexPage("index.html");
+        router.route().path("/api/*").handler(VirtualHostHandler.create("*." + Const.TLD_SELF, routingContext -> {
             communityRouter.handleContext(routingContext);
         }));
-        router.route().handler(VirtualHostHandler.create("*."+Const.TLD_SELF, staticCommunity));
+        router.route().handler(VirtualHostHandler.create("*." + Const.TLD_SELF, staticCommunity));
 
         vertx.createHttpServer().requestHandler(router::accept).listen(8091, "localhost");
         vertx.createNetServer().connectHandler((NetSocket event) -> {
@@ -101,6 +108,7 @@ public class ProxyConfigurer extends AbstractVerticle {
                             pos += 4;
                             int port = b.getShort(pos) & 0xffff;
                             destination = new InetSocketAddress(add, port);
+                            log.debug("Destination ip: {}", destination);
                         } catch (UnknownHostException ex) {
                             throw new IllegalStateException(ex);
                         }
@@ -111,7 +119,7 @@ public class ProxyConfigurer extends AbstractVerticle {
                         String domain = b.getString(pos, pos + size);
                         pos += size;
                         int port = b.getShort(pos) & 0xffff;
-
+                        log.debug("Destination host: {}:{}", domain, port);
                         if (domain.toLowerCase().endsWith("." + Const.TLD_SELF)) {
                             domain = "localhost";
                             port = 8091;
@@ -121,12 +129,14 @@ public class ProxyConfigurer extends AbstractVerticle {
                         throw new IllegalStateException("Not supported IPv6, yet");
                     }
 
-                    System.out.println("destinazione " + destination);
+
+                    //System.out.println("destinazione " + destination);
 
 
                     vertx.createNetClient().connect(destination.getPort(), destination.getHostName(), (evento2) -> {
                         if (evento2.succeeded()) {
-                            System.out.println("Successo " + destination.getHostString());
+                            //System.out.println("Successo " + destination.getHostString());
+                            //log.debug("");
                             Buffer b2 = Buffer.buffer();
                             b2.appendUnsignedByte((byte) 5);
                             b2.appendUnsignedByte((byte) 0)
@@ -141,7 +151,10 @@ public class ProxyConfigurer extends AbstractVerticle {
                             Pump.pump(ee2, event).start();
 
                         } else {
-                            System.out.println("fallimento");
+
+                            log.error("Error connecting to {} via proxy server", destination);
+                            event.close();
+                            //System.out.println("fallimento");
                         }
 
                     });

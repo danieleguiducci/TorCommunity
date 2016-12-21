@@ -37,30 +37,33 @@ public class AdminWebApiCtrl {
     public void getName(RoutingContext ctx) {
         ctx.response().end("GET NAME CHIAMAT");
     }
+
     public void createcommunty(RoutingContext ctx) {
-        HttpServerResponse resp=ctx.response();
+        HttpServerResponse resp = ctx.response();
         try {
 
-            resp.putHeader("content-type","application/json");
+            resp.putHeader("content-type", "application/json");
 
-            Community com= newComCtrl.newCommunity();
+            Community com = newComCtrl.newCommunity();
 
-            CreateCommunityResp respObj=new CreateCommunityResp();
+            CreateCommunityResp respObj = new CreateCommunityResp();
 
             resp.end(mapper.writeValueAsString(respObj));
-        } catch (NoSuchAlgorithmException| JsonProcessingException | SecurityException | SignatureException | InvalidKeyException e) {
-            logger.error("Error during creation of key",e);
+        } catch (NoSuchAlgorithmException | JsonProcessingException | SecurityException | SignatureException | InvalidKeyException e) {
+            logger.error("Error during creation of key", e);
             resp.setStatusCode(500).end();
         }
 
     }
+
     public static class CreateCommunityResp {
         public String url;
     }
+
     public Router getRouter(Vertx vertx) {
         Router router = Router.router(vertx);
         router.route("/getname").handler(this::getName);
-        router.route(HttpMethod.POST,"/createcommunity").consumes("application/json").handler(this::createcommunty);
+        router.route(HttpMethod.POST, "/createcommunity").consumes("application/json").handler(this::createcommunty);
         return router;
     }
 }

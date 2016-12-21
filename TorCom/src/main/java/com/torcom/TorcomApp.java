@@ -1,5 +1,6 @@
 package com.torcom;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.torcom.service.serialization.JsonObjectMapper;
 import io.vertx.core.Vertx;
 import liquibase.integration.spring.SpringLiquibase;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -28,15 +30,13 @@ import java.time.Clock;
 @ComponentScan(basePackages = "com.torcom",excludeFilters =  @ComponentScan.Filter(pattern = "com.torcom.community.*", type = FilterType.REGEX))
 
 public class TorcomApp implements InitializingBean{
-    protected static Logger logger = LoggerFactory.getLogger(Boot.class);
+    protected static Logger logger = LoggerFactory.getLogger(TorcomApp.class);
     @Value("${port}")
     private int port;
     @Autowired
     private ProxyConfigurer proxyServer;
     @Autowired
     private DataSource dataSource;
-    @Autowired
-    private SpringLiquibase liquid;
     @Autowired
     private JsonObjectMapper om;
 
@@ -45,20 +45,13 @@ public class TorcomApp implements InitializingBean{
         Security.addProvider(new BouncyCastleProvider());
     }
 
-    @Bean
-    public Clock clock() {
-        return Clock.systemUTC();
+    public static void main(String[] args) throws JsonProcessingException {
+        SpringApplication.run(TorcomApp.class, args);
     }
 
     @Bean
-    @ConfigurationProperties("liquibase")
-    public SpringLiquibase liquibase() {
-        SpringLiquibase sl=new SpringLiquibase();
-        sl.setChangeLog("classpath:db-changes.xml");
-        sl.setDataSource(dataSource);
-        sl.setContexts("production");
-        sl.setShouldRun(false);
-        return sl;
+    public Clock clock() {
+        return Clock.systemUTC();
     }
 
     @Override

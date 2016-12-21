@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 public class CommunityWebApiCtrl {
 
     public Router getRouter(Vertx vertx) {
-        Router router=Router.router(vertx);
+        Router router = Router.router(vertx);
         return router;
     }
 }

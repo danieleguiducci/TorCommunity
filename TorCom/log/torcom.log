@@ -1,0 +1,570 @@
+11:01:00.556 [vert.x-eventloop-thread-0] INFO  com.torcom.ProxyConfigurer - Vertx starting configuration
+11:39:30.830 [main] INFO  com.torcom.TorcomApp - Starting TorcomApp on VAIO with PID 9708 (C:\lavoro\TorCommunity\TorCom\build\classes\main started by daniele in C:\lavoro\TorCommunity\TorCom)
+11:39:30.832 [main] DEBUG com.torcom.TorcomApp - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+11:39:30.833 [main] INFO  com.torcom.TorcomApp - No active profile set, falling back to default profiles: default
+11:39:30.926 [main] INFO  org.springframework.context.annotation.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2783717b: startup date [Wed Dec 21 11:39:30 GMT 2016]; root of context hierarchy
+11:39:32.010 [main] INFO  org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+11:39:32.557 [main] INFO  com.torcom.TorcomApp - Torcom is starting. Please wait...
+11:39:33.176 [main] WARN  org.springframework.context.annotation.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'torcomApp': Unsatisfied dependency expressed through field 'proxyServer'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyConfigurer': Unsatisfied dependency expressed through field 'adminCtrl'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminWebApiCtrl': Unsatisfied dependency expressed through field 'newComCtrl'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'newCommunityCtrl': Unsatisfied dependency expressed through field 'communityDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.torcom.db.dao.CommunityDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+11:39:33.198 [main] INFO  org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+11:39:33.483 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field communityDao in com.torcom.controller.NewCommunityCtrl required a bean of type 'com.torcom.db.dao.CommunityDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.torcom.db.dao.CommunityDao' in your configuration.
+
+11:40:58.117 [main] INFO  com.torcom.TorcomApp - Starting TorcomApp on VAIO with PID 8856 (C:\lavoro\TorCommunity\TorCom\build\classes\main started by daniele in C:\lavoro\TorCommunity\TorCom)
+11:40:58.120 [main] DEBUG com.torcom.TorcomApp - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+11:40:58.120 [main] INFO  com.torcom.TorcomApp - No active profile set, falling back to default profiles: default
+11:40:58.184 [main] INFO  org.springframework.context.annotation.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2783717b: startup date [Wed Dec 21 11:40:58 GMT 2016]; root of context hierarchy
+11:40:59.020 [main] INFO  org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+11:40:59.559 [main] INFO  com.torcom.TorcomApp - Torcom is starting. Please wait...
+11:41:02.712 [main] INFO  liquibase - Successfully acquired change log lock
+11:41:04.697 [main] INFO  liquibase - Reading from APP.DATABASECHANGELOG
+11:41:04.725 [main] INFO  liquibase - Successfully released change log lock
+11:41:04.726 [main] INFO  liquibase - Shutting down derby connection: jdbc:derby:database;shutdown=true
+11:41:04.832 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+11:41:04.836 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+11:41:04.837 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.maxRecords: 4
+11:41:04.855 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 8
+11:41:04.877 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+11:41:04.877 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+11:41:04.877 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+11:41:04.879 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+11:41:04.880 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+11:41:04.880 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+11:41:04.881 [main] DEBUG io.netty.util.internal.Cleaner0 - java.nio.ByteBuffer.cleaner(): available
+11:41:04.881 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: Windows
+11:41:04.882 [main] DEBUG io.netty.util.internal.PlatformDependent - Java version: 8
+11:41:04.882 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noUnsafe: false
+11:41:04.882 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+11:41:04.882 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noJavassist: false
+11:41:05.021 [main] DEBUG io.netty.util.internal.PlatformDependent - Javassist: available
+11:41:05.022 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\daniele\AppData\Local\Temp (java.io.tmpdir)
+11:41:05.022 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+11:41:05.022 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+11:41:05.023 [main] DEBUG io.netty.util.internal.PlatformDependent - io.netty.maxDirectMemory: 3793747968 bytes
+11:41:05.047 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+11:41:05.047 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+11:41:05.049 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+11:41:05.262 [main] DEBUG io.netty.resolver.dns.DnsServerAddresses - Default DNS servers: [/194.168.4.100:53, /194.168.8.100:53, /8.8.8.8:53, /8.8.4.4:53] (sun.net.dns.ResolverConfiguration)
+11:41:05.314 [vert.x-eventloop-thread-0] INFO  com.torcom.ProxyConfigurer - Vertx starting configuration
+11:41:05.713 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 8
+11:41:05.713 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 8
+11:41:05.714 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+11:41:05.714 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+11:41:05.715 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+11:41:05.715 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+11:41:05.715 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+11:41:05.716 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+11:41:05.716 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+11:41:05.716 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+11:41:05.774 [vert.x-eventloop-thread-0] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+11:41:05.774 [vert.x-eventloop-thread-0] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+11:41:05.787 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+11:41:05.814 [main] INFO  com.torcom.TorcomApp - Started TorcomApp in 9.505 seconds (JVM running for 11.825)
+11:41:05.949 [vert.x-eventloop-thread-0] DEBUG io.netty.util.NetUtil - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+11:41:05.950 [vert.x-eventloop-thread-0] DEBUG io.netty.util.NetUtil - \proc\sys\net\core\somaxconn: 200 (non-existent)
+11:41:05.965 [vert.x-eventloop-thread-0] DEBUG io.netty.util.internal.JavassistTypeParameterMatcherGenerator - Generated: io.netty.util.internal.__matchers__.io.netty.channel.socket.DatagramPacketMatcher
+11:41:05.977 [vert.x-eventloop-thread-0] DEBUG io.netty.util.internal.JavassistTypeParameterMatcherGenerator - Generated: io.netty.util.internal.__matchers__.io.netty.channel.AddressedEnvelopeMatcher
+11:41:06.024 [vert.x-eventloop-thread-0] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 8856 (auto-detected)
+11:41:06.214 [vert.x-eventloop-thread-0] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: ac:7b:a1:ff:fe:43:b1:5b (auto-detected)
+11:41:06.214 [vert.x-eventloop-thread-0] DEBUG io.netty.util.internal.ThreadLocalRandom - -Dio.netty.initialSeedUniquifier: 0x183aa7b7bcfd1f6e
+11:41:06.242 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+11:41:06.243 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 65536
+11:41:06.243 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+11:41:06.250 [vert.x-eventloop-thread-0] DEBUG io.netty.util.internal.JavassistTypeParameterMatcherGenerator - Generated: io.netty.util.internal.__matchers__.java.net.InetSocketAddressMatcher
+13:01:12.106  INFO - [           main] c.t.TorcomApp                            : Starting TorcomApp on VAIO with PID 17676 (C:\lavoro\TorCommunity\TorCom\build\classes\main started by daniele in C:\lavoro\TorCommunity\TorCom)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:12.111 DEBUG - [           main] c.t.TorcomApp                            : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:12.111  INFO - [           main] c.t.TorcomApp                            : No active profile set, falling back to default profiles: default
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:12.204  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3829ac1: startup date [Wed Dec 21 13:01:12 GMT 2016]; root of context hierarchy
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:13.166  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:13.950  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:17.121  INFO - [           main] liquibase                                : Successfully acquired change log lock
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.609  INFO - [           main] liquibase                                : Reading from APP.DATABASECHANGELOG
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.636  INFO - [           main] liquibase                                : Successfully released change log lock
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.638  INFO - [           main] liquibase                                : Shutting down derby connection: jdbc:derby:database;shutdown=true
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.757 DEBUG - [           main] i.n.u.i.l.InternalLoggerFactory          : Using SLF4J as the default logging framework
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.766 DEBUG - [           main] i.n.u.ResourceLeakDetector               : -Dio.netty.leakDetection.level: simple
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.766 DEBUG - [           main] i.n.u.ResourceLeakDetector               : -Dio.netty.leakDetection.maxRecords: 4
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.807 DEBUG - [           main] i.n.c.MultithreadEventLoopGroup          : -Dio.netty.eventLoopThreads: 8
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.858 DEBUG - [           main] i.n.u.i.PlatformDependent0               : java.nio.Buffer.address: available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.859 DEBUG - [           main] i.n.u.i.PlatformDependent0               : sun.misc.Unsafe.theUnsafe: available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.862 DEBUG - [           main] i.n.u.i.PlatformDependent0               : sun.misc.Unsafe.copyMemory: available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.863 DEBUG - [           main] i.n.u.i.PlatformDependent0               : direct buffer constructor: available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.865 DEBUG - [           main] i.n.u.i.PlatformDependent0               : java.nio.Bits.unaligned: available, true
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.865 DEBUG - [           main] i.n.u.i.PlatformDependent0               : java.nio.DirectByteBuffer.<init>(long, int): available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.867 DEBUG - [           main] i.n.u.i.Cleaner0                         : java.nio.ByteBuffer.cleaner(): available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.868 DEBUG - [           main] i.n.u.i.PlatformDependent                : Platform: Windows
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.869 DEBUG - [           main] i.n.u.i.PlatformDependent                : Java version: 8
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.869 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.noUnsafe: false
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.870 DEBUG - [           main] i.n.u.i.PlatformDependent                : sun.misc.Unsafe: available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:18.871 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.noJavassist: false
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.058 DEBUG - [           main] i.n.u.i.PlatformDependent                : Javassist: available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.059 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.tmpdir: C:\Users\daniele\AppData\Local\Temp (java.io.tmpdir)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.059 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.088 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.noPreferDirect: false
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.089 DEBUG - [           main] i.n.u.i.PlatformDependent                : io.netty.maxDirectMemory: 3793747968 bytes
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.155 DEBUG - [           main] i.n.c.n.NioEventLoop                     : -Dio.netty.noKeySetOptimization: false
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.155 DEBUG - [           main] i.n.c.n.NioEventLoop                     : -Dio.netty.selectorAutoRebuildThreshold: 512
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.164 DEBUG - [           main] i.n.u.i.PlatformDependent                : org.jctools-core.MpscChunkedArrayQueue: available
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.739 DEBUG - [           main] i.n.r.d.DnsServerAddresses               : Default DNS servers: [/194.168.4.100:53, /194.168.8.100:53, /8.8.8.8:53, /8.8.4.4:53] (sun.net.dns.ResolverConfiguration)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:19.812  INFO - [ntloop-thread-0] c.t.ProxyConfigurer                      : Vertx starting configuration
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.214 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.numHeapArenas: 8
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.215 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.numDirectArenas: 8
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.215 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.pageSize: 8192
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.215 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.maxOrder: 11
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.215 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.chunkSize: 16777216
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.215 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.tinyCacheSize: 512
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.216 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.smallCacheSize: 256
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.216 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.normalCacheSize: 64
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.218 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.218 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.cacheTrimInterval: 8192
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.298 DEBUG - [ntloop-thread-0] i.n.u.NetUtil                            : -Djava.net.preferIPv4Stack: false
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.298 DEBUG - [ntloop-thread-0] i.n.u.NetUtil                            : -Djava.net.preferIPv6Addresses: false
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.342  INFO - [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.371  INFO - [           main] c.t.TorcomApp                            : Started TorcomApp in 10.061 seconds (JVM running for 12.58)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.785 DEBUG - [ntloop-thread-0] i.n.u.NetUtil                            : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.786 DEBUG - [ntloop-thread-0] i.n.u.NetUtil                            : \proc\sys\net\core\somaxconn: 200 (non-existent)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.805 DEBUG - [ntloop-thread-0] i.JavassistTypeParameterMatcherGenerator : Generated: io.netty.util.internal.__matchers__.io.netty.channel.socket.DatagramPacketMatcher
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.814 DEBUG - [ntloop-thread-0] i.JavassistTypeParameterMatcherGenerator : Generated: io.netty.util.internal.__matchers__.io.netty.channel.AddressedEnvelopeMatcher
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:20.858 DEBUG - [ntloop-thread-0] i.n.c.DefaultChannelId                   : -Dio.netty.processId: 17676 (auto-detected)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:21.160 DEBUG - [ntloop-thread-0] i.n.c.DefaultChannelId                   : -Dio.netty.machineId: ac:7b:a1:ff:fe:43:b1:5b (auto-detected)
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:21.160 DEBUG - [ntloop-thread-0] i.n.u.i.ThreadLocalRandom                : -Dio.netty.initialSeedUniquifier: 0xdeed4445cd6bf94c
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:21.196 DEBUG - [ntloop-thread-0] i.n.b.ByteBufUtil                        : -Dio.netty.allocator.type: pooled
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:21.196 DEBUG - [ntloop-thread-0] i.n.b.ByteBufUtil                        : -Dio.netty.threadLocalDirectBufferSize: 65536
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:21.197 DEBUG - [ntloop-thread-0] i.n.b.ByteBufUtil                        : -Dio.netty.maxThreadLocalCharBufferSize: 16384
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:01:21.208 DEBUG - [ntloop-thread-0] i.JavassistTypeParameterMatcherGenerator : Generated: io.netty.util.internal.__matchers__.java.net.InetSocketAddressMatcher
+${sys:LOG_EXCEPTION_CONVERSION_WORD}13:02:22.753  INFO - [           main] c.t.TorcomApp                            : Starting TorcomApp on VAIO with PID 15728 (C:\lavoro\TorCommunity\TorCom\build\classes\main started by daniele in C:\lavoro\TorCommunity\TorCom)
+13:02:22.756 DEBUG - [           main] c.t.TorcomApp                            : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+13:02:22.757  INFO - [           main] c.t.TorcomApp                            : No active profile set, falling back to default profiles: default
+13:02:22.823  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@553f1d75: startup date [Wed Dec 21 13:02:22 GMT 2016]; root of context hierarchy
+13:02:23.670  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+13:02:24.218  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+13:02:27.743  INFO - [           main] liquibase                                : Successfully acquired change log lock
+13:02:29.341  INFO - [           main] liquibase                                : Reading from APP.DATABASECHANGELOG
+13:02:29.369  INFO - [           main] liquibase                                : Successfully released change log lock
+13:02:29.370  INFO - [           main] liquibase                                : Shutting down derby connection: jdbc:derby:database;shutdown=true
+13:02:29.491 DEBUG - [           main] i.n.u.i.l.InternalLoggerFactory          : Using SLF4J as the default logging framework
+13:02:29.501 DEBUG - [           main] i.n.u.ResourceLeakDetector               : -Dio.netty.leakDetection.level: simple
+13:02:29.501 DEBUG - [           main] i.n.u.ResourceLeakDetector               : -Dio.netty.leakDetection.maxRecords: 4
+13:02:29.535 DEBUG - [           main] i.n.c.MultithreadEventLoopGroup          : -Dio.netty.eventLoopThreads: 8
+13:02:29.568 DEBUG - [           main] i.n.u.i.PlatformDependent0               : java.nio.Buffer.address: available
+13:02:29.568 DEBUG - [           main] i.n.u.i.PlatformDependent0               : sun.misc.Unsafe.theUnsafe: available
+13:02:29.569 DEBUG - [           main] i.n.u.i.PlatformDependent0               : sun.misc.Unsafe.copyMemory: available
+13:02:29.570 DEBUG - [           main] i.n.u.i.PlatformDependent0               : direct buffer constructor: available
+13:02:29.572 DEBUG - [           main] i.n.u.i.PlatformDependent0               : java.nio.Bits.unaligned: available, true
+13:02:29.572 DEBUG - [           main] i.n.u.i.PlatformDependent0               : java.nio.DirectByteBuffer.<init>(long, int): available
+13:02:29.574 DEBUG - [           main] i.n.u.i.Cleaner0                         : java.nio.ByteBuffer.cleaner(): available
+13:02:29.575 DEBUG - [           main] i.n.u.i.PlatformDependent                : Platform: Windows
+13:02:29.584 DEBUG - [           main] i.n.u.i.PlatformDependent                : Java version: 8
+13:02:29.585 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.noUnsafe: false
+13:02:29.585 DEBUG - [           main] i.n.u.i.PlatformDependent                : sun.misc.Unsafe: available
+13:02:29.586 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.noJavassist: false
+13:02:29.698 DEBUG - [           main] i.n.u.i.PlatformDependent                : Javassist: available
+13:02:29.699 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.tmpdir: C:\Users\daniele\AppData\Local\Temp (java.io.tmpdir)
+13:02:29.699 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+13:02:29.699 DEBUG - [           main] i.n.u.i.PlatformDependent                : -Dio.netty.noPreferDirect: false
+13:02:29.699 DEBUG - [           main] i.n.u.i.PlatformDependent                : io.netty.maxDirectMemory: 3793747968 bytes
+13:02:29.716 DEBUG - [           main] i.n.c.n.NioEventLoop                     : -Dio.netty.noKeySetOptimization: false
+13:02:29.716 DEBUG - [           main] i.n.c.n.NioEventLoop                     : -Dio.netty.selectorAutoRebuildThreshold: 512
+13:02:29.718 DEBUG - [           main] i.n.u.i.PlatformDependent                : org.jctools-core.MpscChunkedArrayQueue: available
+13:02:29.945 DEBUG - [           main] i.n.r.d.DnsServerAddresses               : Default DNS servers: [/194.168.4.100:53, /194.168.8.100:53, /8.8.8.8:53, /8.8.4.4:53] (sun.net.dns.ResolverConfiguration)
+13:02:29.980  INFO - [ntloop-thread-0] c.t.ProxyConfigurer                      : Vertx starting configuration
+13:02:30.357 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.numHeapArenas: 8
+13:02:30.357 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.numDirectArenas: 8
+13:02:30.357 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.pageSize: 8192
+13:02:30.357 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.maxOrder: 11
+13:02:30.358 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.chunkSize: 16777216
+13:02:30.358 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.tinyCacheSize: 512
+13:02:30.358 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.smallCacheSize: 256
+13:02:30.358 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.normalCacheSize: 64
+13:02:30.359 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+13:02:30.359 DEBUG - [ntloop-thread-0] i.n.b.PooledByteBufAllocator             : -Dio.netty.allocator.cacheTrimInterval: 8192
+13:02:30.412 DEBUG - [ntloop-thread-0] i.n.u.NetUtil                            : -Djava.net.preferIPv4Stack: false
+13:02:30.412 DEBUG - [ntloop-thread-0] i.n.u.NetUtil                            : -Djava.net.preferIPv6Addresses: false
+13:02:30.474  INFO - [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+13:02:30.511  INFO - [           main] c.t.TorcomApp                            : Started TorcomApp in 9.406 seconds (JVM running for 11.929)
+13:02:30.985 DEBUG - [ntloop-thread-0] i.n.u.NetUtil                            : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+13:02:30.987 DEBUG - [ntloop-thread-0] i.n.u.NetUtil                            : \proc\sys\net\core\somaxconn: 200 (non-existent)
+13:02:31.005 DEBUG - [ntloop-thread-0] i.JavassistTypeParameterMatcherGenerator : Generated: io.netty.util.internal.__matchers__.io.netty.channel.socket.DatagramPacketMatcher
+13:02:31.012 DEBUG - [ntloop-thread-0] i.JavassistTypeParameterMatcherGenerator : Generated: io.netty.util.internal.__matchers__.io.netty.channel.AddressedEnvelopeMatcher
+13:02:31.051 DEBUG - [ntloop-thread-0] i.n.c.DefaultChannelId                   : -Dio.netty.processId: 15728 (auto-detected)
+13:02:31.351 DEBUG - [ntloop-thread-0] i.n.c.DefaultChannelId                   : -Dio.netty.machineId: ac:7b:a1:ff:fe:43:b1:5b (auto-detected)
+13:02:31.352 DEBUG - [ntloop-thread-0] i.n.u.i.ThreadLocalRandom                : -Dio.netty.initialSeedUniquifier: 0x3a6ef0681e443186
+13:02:31.376 DEBUG - [ntloop-thread-0] i.n.b.ByteBufUtil                        : -Dio.netty.allocator.type: pooled
+13:02:31.376 DEBUG - [ntloop-thread-0] i.n.b.ByteBufUtil                        : -Dio.netty.threadLocalDirectBufferSize: 65536
+13:02:31.377 DEBUG - [ntloop-thread-0] i.n.b.ByteBufUtil                        : -Dio.netty.maxThreadLocalCharBufferSize: 16384
+13:02:31.383 DEBUG - [ntloop-thread-0] i.JavassistTypeParameterMatcherGenerator : Generated: io.netty.util.internal.__matchers__.java.net.InetSocketAddressMatcher
+13:26:20.371 DEBUG - [ntloop-thread-0] i.n.u.Recycler                           : -Dio.netty.recycler.maxCapacityPerThread: 32768
+13:26:20.371 DEBUG - [ntloop-thread-0] i.n.u.Recycler                           : -Dio.netty.recycler.maxSharedCapacityFactor: 2
+13:26:20.371 DEBUG - [ntloop-thread-0] i.n.u.Recycler                           : -Dio.netty.recycler.linkCapacity: 16
+13:26:20.371 DEBUG - [ntloop-thread-0] i.n.u.Recycler                           : -Dio.netty.recycler.ratio: 8
+13:26:20.382 DEBUG - [ntloop-thread-0] i.n.b.AbstractByteBuf                    : -Dio.netty.buffer.bytebuf.checkAccessible: true
+13:26:20.385 DEBUG - [ntloop-thread-0] i.n.u.ResourceLeakDetectorFactory        : Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@5df6a7d3
+13:26:20.403 DEBUG - [ntloop-thread-0] c.t.ProxyConfigurer                      : Destination host: safebrowsing.google.com:443
+13:26:20.422 DEBUG - [ntloop-thread-0] i.n.u.ResourceLeakDetectorFactory        : Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@720c2938
+13:26:20.434 DEBUG - [ntloop-thread-0] i.n.r.d.DnsQueryContext                  : [id: 0x2608fb07] WRITE: [60092: /194.168.4.100:53], DefaultDnsQuestion(safebrowsing.google.com. IN A)
+13:26:20.440 DEBUG - [ntloop-thread-0] i.n.r.d.DnsQueryContext                  : [id: 0x2608fb07] WRITE: [5922: /194.168.4.100:53], DefaultDnsQuestion(safebrowsing.google.com. IN AAAA)
+13:26:20.473 DEBUG - [ntloop-thread-0] i.n.r.d.DnsNameResolver                  : [id: 0x2608fb07] RECEIVED: [60092: /194.168.4.100:53], DatagramDnsResponse(from: /194.168.4.100:53, to: /0:0:0:0:0:0:0:0:56926, 60092, QUERY(0), NoError(0), RD RA)
+	DefaultDnsQuestion(safebrowsing.google.com. IN A)
+	DefaultDnsRawRecord(safebrowsing.google.com. 130458 IN CNAME 7B)
+	DefaultDnsRawRecord(sb.l.google.com. 249 IN A 4B)
+	DefaultDnsRawRecord(OPT flags:0 udp:4000 0B)
+13:26:20.478 DEBUG - [ntloop-thread-0] i.n.r.d.DnsNameResolver                  : [id: 0x2608fb07] RECEIVED: [5922: /194.168.4.100:53], DatagramDnsResponse(from: /194.168.4.100:53, to: /0:0:0:0:0:0:0:0:56926, 5922, QUERY(0), NoError(0), RD RA)
+	DefaultDnsQuestion(safebrowsing.google.com. IN AAAA)
+	DefaultDnsRawRecord(safebrowsing.google.com. 130458 IN CNAME 7B)
+	DefaultDnsRawRecord(sb.l.google.com. 267 IN AAAA 16B)
+	DefaultDnsRawRecord(OPT flags:0 udp:4000 0B)
+13:26:20.617 DEBUG - [ntloop-thread-0] c.t.ProxyConfigurer                      : Destination host: safebrowsing-cache.google.com:443
+13:26:20.618 DEBUG - [ntloop-thread-0] i.n.r.d.DnsQueryContext                  : [id: 0x2608fb07] WRITE: [11846: /194.168.4.100:53], DefaultDnsQuestion(safebrowsing-cache.google.com. IN A)
+13:26:20.618 DEBUG - [ntloop-thread-0] i.n.r.d.DnsQueryContext                  : [id: 0x2608fb07] WRITE: [11218: /194.168.4.100:53], DefaultDnsQuestion(safebrowsing-cache.google.com. IN AAAA)
+13:26:20.651 DEBUG - [ntloop-thread-0] i.n.r.d.DnsNameResolver                  : [id: 0x2608fb07] RECEIVED: [11846: /194.168.4.100:53], DatagramDnsResponse(from: /194.168.4.100:53, to: /0:0:0:0:0:0:0:0:56926, 11846, QUERY(0), NoError(0), RD RA)
+	DefaultDnsQuestion(safebrowsing-cache.google.com. IN A)
+	DefaultDnsRawRecord(safebrowsing-cache.google.com. 269220 IN CNAME 23B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 250 IN A 4B)
+	DefaultDnsRawRecord(OPT flags:0 udp:4000 0B)
+13:26:20.652 DEBUG - [ntloop-thread-0] i.n.r.d.DnsNameResolver                  : [id: 0x2608fb07] RECEIVED: [11218: /194.168.4.100:53], DatagramDnsResponse(from: /194.168.4.100:53, to: /0:0:0:0:0:0:0:0:56926, 11218, QUERY(0), NoError(0), RD RA)
+	DefaultDnsQuestion(safebrowsing-cache.google.com. IN AAAA)
+	DefaultDnsRawRecord(safebrowsing-cache.google.com. 269220 IN CNAME 23B)
+	DefaultDnsRawRecord(safebrowsing.cache.l.google.com. 242 IN AAAA 16B)
+	DefaultDnsRawRecord(OPT flags:0 udp:4000 0B)
+13:34:56.581  INFO - [           main] c.t.TorcomApp                            : Starting TorcomApp on VAIO with PID 18108 (C:\lavoro\TorCommunity\TorCom\build\classes\main started by daniele in C:\lavoro\TorCommunity\TorCom)
+13:34:56.584 DEBUG - [           main] c.t.TorcomApp                            : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+13:34:56.584  INFO - [           main] c.t.TorcomApp                            : No active profile set, falling back to default profiles: default
+13:34:56.643  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@62fe6067: startup date [Wed Dec 21 13:34:56 GMT 2016]; root of context hierarchy
+13:34:57.462  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+13:34:58.027  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+13:35:01.223  INFO - [           main] liquibase                                : Successfully acquired change log lock
+13:35:02.902  INFO - [           main] liquibase                                : Reading from APP.DATABASECHANGELOG
+13:35:02.933  INFO - [           main] liquibase                                : Successfully released change log lock
+13:35:02.934  INFO - [           main] liquibase                                : Shutting down derby connection: jdbc:derby:database;shutdown=true
+13:35:03.439  INFO - [ntloop-thread-0] c.t.ProxyConfigurer                      : Vertx starting configuration
+13:35:03.893  INFO - [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+13:35:03.927  INFO - [           main] c.t.TorcomApp                            : Started TorcomApp in 9.18 seconds (JVM running for 11.622)
+13:57:32.622 DEBUG - [ntloop-thread-0] c.t.ProxyConfigurer                      : Destination host: safebrowsing.google.com:443
+13:57:32.848 DEBUG - [ntloop-thread-0] c.t.ProxyConfigurer                      : Destination host: safebrowsing-cache.google.com:443
+14:05:10.555  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.torcom.service.serialization.JsonObjectMapperIntegrationTest], using SpringBootContextLoader
+14:05:10.572  INFO - [           main] o.s.t.c.s.AbstractContextLoader          : Could not detect default resource locations for test class [com.torcom.service.serialization.JsonObjectMapperIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+14:05:10.858  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+14:05:10.885  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+14:05:10.936  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@443118b0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@765d7657, org.springframework.test.context.support.DirtiesContextTestExecutionListener@74235045, org.springframework.test.context.transaction.TransactionalTestExecutionListener@618b19ad, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2d3379b4, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@30c15d8b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5e0e82ae, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6771beb3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@51399530, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6b2ea799, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@411f53a0]
+14:05:13.479  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Starting JsonObjectMapperIntegrationTest on VAIO with PID 12624 (started by daniele in C:\lavoro\TorCommunity\TorCom)
+14:05:13.480 DEBUG - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+14:05:13.481  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : No active profile set, falling back to default profiles: default
+14:05:13.535  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@443dbe42: startup date [Wed Dec 21 14:05:13 GMT 2016]; root of context hierarchy
+14:05:14.742  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+14:05:15.305  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+14:05:18.698  INFO - [           main] liquibase                                : Successfully acquired change log lock
+14:05:20.390  INFO - [           main] liquibase                                : Reading from APP.DATABASECHANGELOG
+14:05:20.420  INFO - [           main] liquibase                                : Successfully released change log lock
+14:05:20.422  INFO - [           main] liquibase                                : Shutting down derby connection: jdbc:derby:database;shutdown=true
+14:05:21.032  INFO - [ntloop-thread-0] c.t.ProxyConfigurer                      : Vertx starting configuration
+14:05:21.479  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Started JsonObjectMapperIntegrationTest in 10.214 seconds (JVM running for 13.857)
+14:05:21.591  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Public Key {"pubKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEClc6ZtYfys+igu88QE2iIBkf6mEZtW20skfPlPXnVNN6dqIM0hWw+KKynlHwTh9975g8tz16GNp/qTMoW4ukQA=="}
+14:05:21.591  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : PublicKey Size:137
+14:05:22.135  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Instant Serialization1482329122.128000000
+14:05:51.829  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.torcom.service.serialization.JsonObjectMapperIntegrationTest], using SpringBootContextLoader
+14:05:51.846  INFO - [           main] o.s.t.c.s.AbstractContextLoader          : Could not detect default resource locations for test class [com.torcom.service.serialization.JsonObjectMapperIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+14:05:52.041  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+14:05:52.088  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+14:05:52.108  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@443118b0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@765d7657, org.springframework.test.context.support.DirtiesContextTestExecutionListener@74235045, org.springframework.test.context.transaction.TransactionalTestExecutionListener@618b19ad, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2d3379b4, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@30c15d8b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5e0e82ae, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6771beb3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@51399530, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6b2ea799, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@411f53a0]
+14:05:54.895  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Starting JsonObjectMapperIntegrationTest on VAIO with PID 14644 (started by daniele in C:\lavoro\TorCommunity\TorCom)
+14:05:54.897 DEBUG - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+14:05:54.898  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : No active profile set, falling back to default profiles: default
+14:05:54.980  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@443dbe42: startup date [Wed Dec 21 14:05:54 GMT 2016]; root of context hierarchy
+14:05:56.298  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+14:05:56.928  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+14:05:57.760  WARN - [           main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'torcomApp': Unsatisfied dependency expressed through field 'liquid'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'liquibase.integration.spring.SpringLiquibase' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+14:05:57.770  INFO - [           main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+14:05:57.999 ERROR - [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field liquid in com.torcom.TorcomApp required a bean of type 'liquibase.integration.spring.SpringLiquibase' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'liquibase.integration.spring.SpringLiquibase' in your configuration.
+
+14:05:58.577  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Starting JsonObjectMapperIntegrationTest on VAIO with PID 14644 (started by daniele in C:\lavoro\TorCommunity\TorCom)
+14:05:58.578 DEBUG - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+14:05:58.578  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : No active profile set, falling back to default profiles: default
+14:05:58.585  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7945b206: startup date [Wed Dec 21 14:05:58 GMT 2016]; root of context hierarchy
+14:05:59.103  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+14:05:59.250  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+14:05:59.451  WARN - [           main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'torcomApp': Unsatisfied dependency expressed through field 'liquid'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'liquibase.integration.spring.SpringLiquibase' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+14:05:59.454  INFO - [           main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+14:05:59.590 ERROR - [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field liquid in com.torcom.TorcomApp required a bean of type 'liquibase.integration.spring.SpringLiquibase' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'liquibase.integration.spring.SpringLiquibase' in your configuration.
+
+14:05:59.591 ERROR - [           main] o.s.t.c.TestContextManager               : Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@765d7657] to prepare test instance [com.torcom.service.serialization.JsonObjectMapperIntegrationTest@2c18a3ea]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:47) ~[spring-boot-test-autoconfigure-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:51) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_45]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147) [idea_rt.jar:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'torcomApp': Unsatisfied dependency expressed through field 'liquid'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'liquibase.integration.spring.SpringLiquibase' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:592) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:370) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1219) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:754) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:111) ~[spring-boot-test-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	... 28 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'liquibase.integration.spring.SpringLiquibase' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1466) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1097) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1059) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:589) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:370) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1219) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:754) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:111) ~[spring-boot-test-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	... 28 more
+
+14:06:00.283  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Starting JsonObjectMapperIntegrationTest on VAIO with PID 14644 (started by daniele in C:\lavoro\TorCommunity\TorCom)
+14:06:00.284 DEBUG - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+14:06:00.284  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : No active profile set, falling back to default profiles: default
+14:06:00.293  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6c6928c: startup date [Wed Dec 21 14:06:00 GMT 2016]; root of context hierarchy
+14:06:01.148  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+14:06:01.305  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+14:06:01.513  WARN - [           main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'torcomApp': Unsatisfied dependency expressed through field 'liquid'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'liquibase.integration.spring.SpringLiquibase' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+14:06:01.518  INFO - [           main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+14:06:01.743 ERROR - [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field liquid in com.torcom.TorcomApp required a bean of type 'liquibase.integration.spring.SpringLiquibase' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'liquibase.integration.spring.SpringLiquibase' in your configuration.
+
+14:06:02.306  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Starting JsonObjectMapperIntegrationTest on VAIO with PID 14644 (started by daniele in C:\lavoro\TorCommunity\TorCom)
+14:06:02.306 DEBUG - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+14:06:02.307  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : No active profile set, falling back to default profiles: default
+14:06:02.312  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6fbc7853: startup date [Wed Dec 21 14:06:02 GMT 2016]; root of context hierarchy
+14:06:02.811  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+14:06:02.932  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+14:06:03.094  WARN - [           main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'torcomApp': Unsatisfied dependency expressed through field 'liquid'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'liquibase.integration.spring.SpringLiquibase' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+14:06:03.098  INFO - [           main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+14:06:03.258 ERROR - [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field liquid in com.torcom.TorcomApp required a bean of type 'liquibase.integration.spring.SpringLiquibase' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'liquibase.integration.spring.SpringLiquibase' in your configuration.
+
+14:06:03.259 ERROR - [           main] o.s.t.c.TestContextManager               : Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@765d7657] to prepare test instance [com.torcom.service.serialization.JsonObjectMapperIntegrationTest@6fa7ce4]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:47) ~[spring-boot-test-autoconfigure-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191) [spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:51) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_45]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147) [idea_rt.jar:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'torcomApp': Unsatisfied dependency expressed through field 'liquid'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'liquibase.integration.spring.SpringLiquibase' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:592) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:370) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1219) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:754) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:111) ~[spring-boot-test-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	... 28 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'liquibase.integration.spring.SpringLiquibase' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1466) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1097) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1059) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:589) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:370) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1219) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:754) ~[spring-beans-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:111) ~[spring-boot-test-1.4.2.RELEASE.jar:1.4.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) ~[spring-test-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+	... 28 more
+
+14:06:31.792  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.torcom.service.serialization.JsonObjectMapperIntegrationTest], using SpringBootContextLoader
+14:06:31.807  INFO - [           main] o.s.t.c.s.AbstractContextLoader          : Could not detect default resource locations for test class [com.torcom.service.serialization.JsonObjectMapperIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+14:06:32.050  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+14:06:32.091  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+14:06:32.116  INFO - [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@443118b0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@765d7657, org.springframework.test.context.support.DirtiesContextTestExecutionListener@74235045, org.springframework.test.context.transaction.TransactionalTestExecutionListener@618b19ad, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2d3379b4, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@30c15d8b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5e0e82ae, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6771beb3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@51399530, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6b2ea799, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@411f53a0]
+14:06:35.154  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Starting JsonObjectMapperIntegrationTest on VAIO with PID 4544 (started by daniele in C:\lavoro\TorCommunity\TorCom)
+14:06:35.155 DEBUG - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+14:06:35.156  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : No active profile set, falling back to default profiles: default
+14:06:35.258  INFO - [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@443dbe42: startup date [Wed Dec 21 14:06:35 GMT 2016]; root of context hierarchy
+14:06:36.441  INFO - [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+14:06:37.016  INFO - [           main] c.t.TorcomApp                            : Torcom is starting. Please wait...
+14:06:38.116  INFO - [ntloop-thread-0] c.t.ProxyConfigurer                      : Vertx starting configuration
+14:06:38.569  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Started JsonObjectMapperIntegrationTest in 6.112 seconds (JVM running for 9.206)
+14:06:38.790  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Public Key {"pubKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5bfWj2sGb3g5wxGeN/RlhOylgkZLlHFxeTohg990hV73VuPjPDBMqm6iOKe7WPZExMK9/mNSo+uh6z02tRr0YQ=="}
+14:06:38.790  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : PublicKey Size:137
+14:06:39.378  INFO - [           main] c.t.s.s.JsonObjectMapperIntegrationTest  : Instant Serialization1482329199.371000000
+14:06:39.392  INFO - [       Thread-4] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@443dbe42: startup date [Wed Dec 21 14:06:35 GMT 2016]; root of context hierarchy

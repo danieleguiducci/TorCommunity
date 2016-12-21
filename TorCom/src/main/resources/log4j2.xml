@@ -1,0 +1,33 @@
+<Configuration status="WARN" shutdownHook="false">
+    <Properties>
+        <Property name="PID">????</Property>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+        <Property name="LOG_LEVEL_PATTERN">%5p</Property>
+        <Property name="LOG_PATTERN">%clr{%d{HH:mm:ss.SSS}}{faint} %clr{${LOG_LEVEL_PATTERN}} %clr{-}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%clr{%d{HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{-}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}"/>
+        </Console>
+        <RollingFile name="RollingFile" fileName="log/torcom.log" filePattern="./log/log-%d{ddMMyyyy}log.gz">
+            <PatternLayout pattern="%clr{%d{HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{-}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}"/>
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="liquibase" level="info">
+
+        </Logger>
+
+        <Logger name="org.springframework" level="info">
+
+        </Logger>
+        <Logger name="com.torcom" level="debug">
+
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

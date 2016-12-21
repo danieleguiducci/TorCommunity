@@ -3,22 +3,21 @@ package com.torcom.controller;
 import com.torcom.Const;
 import com.torcom.TorcomApp;
 import com.torcom.bean.Community;
-import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by daniele on 21/12/2015.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(TorcomApp.class)
-@IntegrationTest({"server.port=0", "management.port=0"})
+@SpringBootTest(value = {"server.port=0", "management.port=0"}, classes = TorcomApp.class)
 public class NewComCtrlIntegrationTest {
     protected static Logger log = LoggerFactory.getLogger(NewComCtrlIntegrationTest.class);
 

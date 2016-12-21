@@ -2,12 +2,11 @@ package com.torcom.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.torcom.CommunitySet;
-import com.torcom.Const;
 import com.torcom.bean.Community;
 import com.torcom.bean.PublicDomain;
 import com.torcom.bean.PublicSid;
-import com.torcom.db.dao.CommunityDao;
-import com.torcom.db.entity.CommunityRow;
+import com.torcom.db.main.CommunityDao;
+import com.torcom.db.main.CommunityRow;
 import com.torcom.service.crypto.CryptoUtil;
 import com.torcom.service.serialization.JsonObjectMapper;
 import org.slf4j.Logger;

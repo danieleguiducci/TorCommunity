@@ -1,4 +1,4 @@
-package com.torcom.db.entity;
+package com.torcom.db.main;
 
 /**
  * Created by daniele on 17/12/2015.

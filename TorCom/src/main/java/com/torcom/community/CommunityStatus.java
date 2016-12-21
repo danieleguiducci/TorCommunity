@@ -1,6 +1,5 @@
 package com.torcom.community;
 
-import com.torcom.db.dao.CommunityDao;
 import com.torcom.service.crypto.CryptoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
