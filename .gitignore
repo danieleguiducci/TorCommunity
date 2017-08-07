@@ -3,6 +3,11 @@
 /TorCom/.nb-gradle/
 /TorCom/build/
 /TorCom/database/
+/TorCom/dbcom/*
+/TorCom/out/
+/TorCom/log/
+/TorCom/ethdb/
+/TorCom/logs/
 .idea
 .vertx
 .gradle
