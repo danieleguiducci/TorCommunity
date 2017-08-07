@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.6.RELEASE")
     }
 }
 
@@ -28,6 +28,9 @@ bootRepackage {
 
 repositories {
     jcenter()
+    maven {
+        url "https://dl.bintray.com/ethereum/maven/"
+    }
 }
 
 sourceCompatibility = 1.8
@@ -35,27 +38,38 @@ targetCompatibility = 1.8
 dependencies {
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
+  //  compile("org.springframework.boot:spring-boot-devtools")
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.6.RELEASE'
 
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.2.RELEASE'
-
-
-    compile ('org.springframework.boot:spring-boot-starter-jdbc:1.4.2.RELEASE')  {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    compile (group: 'org.ethereum', name: 'ethereumj-core', version: '1.5.0-RELEASE'){
+        exclude group : 'io.netty', module:'netty-all'
+        // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+       // exclude group: 'ch.qos.logback', module: 'logback-classic'
+       // exclude group: 'ch.qos.logback', module: 'logback-core'
     }
-    compile 'org.springframework.boot:spring-boot-starter-log4j2:1.4.2.RELEASE'
-    compile 'io.vertx:vertx-core:3.3.3'
-    compile 'io.vertx:vertx-web:3.3.3'
+
+    compile ('org.springframework.boot:spring-boot-starter-jdbc:1.5.6.RELEASE')  {
+        //exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+    //compile ('org.springframework.boot:spring-boot-starter-log4j2:1.5.6.RELEASE') {
+    //    exclude group: 'org.apache.logging.log4', module: 'log4j-slf4j-impl'
+   // }
+    compile 'io.vertx:vertx-core:3.4.2'
+    compile 'io.vertx:vertx-web:3.4.2'
     compile 'org.apache.derby:derby:10.13.1.1'
     compile 'commons-codec:commons-codec:1.10'
-    compile 'org.liquibase:liquibase-core:3.4.2'
+    compile 'org.liquibase:liquibase-core:3.5.3'
     compile group: 'com.mattbertolini', name: 'liquibase-slf4j', version: '2.0.0'
     compile 'org.apache.commons:commons-dbcp2:2.1.1'
-    compile 'org.bouncycastle:bcprov-jdk15on:1.55'
+    compile 'org.bouncycastle:bcprov-jdk15on:1.57'
     compile 'org.msgpack:jackson-dataformat-msgpack:0.8.11'
     compile 'org.msgpack:msgpack:0.6.12'
     compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.5'
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.7'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+    //compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.7'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.13.Final'
+
+
 }

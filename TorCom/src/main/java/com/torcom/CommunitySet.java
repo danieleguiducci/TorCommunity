@@ -1,7 +1,7 @@
 package com.torcom;
 
 import com.torcom.bean.PublicId;
-import com.torcom.community.CommunityStatus;
+import com.torcom.second.community.CommunityStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -53,7 +53,7 @@ public class CommunitySet {
 
             ConfigurableEnvironment ce= con.getEnvironment();
             MutablePropertySources mps=ce.getPropertySources();
-            Map myMap = new HashMap();
+            Map<String,Object> myMap = new HashMap();
             myMap.put("publicDomain", publicDomain.getPublicId());
             mps.addLast(new MapPropertySource("initData", myMap));
 

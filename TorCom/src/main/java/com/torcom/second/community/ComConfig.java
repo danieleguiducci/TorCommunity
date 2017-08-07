@@ -1,4 +1,4 @@
-package com.torcom.community;
+package com.torcom.second.community;
 
 import org.springframework.context.annotation.Configuration;
 

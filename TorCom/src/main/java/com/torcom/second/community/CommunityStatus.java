@@ -1,4 +1,4 @@
-package com.torcom.community;
+package com.torcom.second.community;
 
 import com.torcom.service.crypto.CryptoUtil;
 import org.slf4j.Logger;

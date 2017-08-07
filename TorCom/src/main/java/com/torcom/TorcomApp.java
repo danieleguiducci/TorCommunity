@@ -3,16 +3,18 @@ package com.torcom;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.torcom.service.serialization.JsonObjectMapper;
 import io.vertx.core.Vertx;
-import liquibase.integration.spring.SpringLiquibase;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.ethereum.config.SystemProperties;
+import org.ethereum.facade.Ethereum;
+import org.ethereum.facade.EthereumFactory;
+import org.ethereum.samples.BasicSample;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
@@ -27,10 +29,12 @@ import java.time.Clock;
  */
 @SpringBootApplication
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.torcom",excludeFilters =  @ComponentScan.Filter(pattern = "com.torcom.community.*", type = FilterType.REGEX))
+@ComponentScan(basePackages = "com.torcom", excludeFilters = @ComponentScan.Filter(pattern = "com.torcom.second.*", type = FilterType.REGEX))
 
-public class TorcomApp implements InitializingBean{
-    protected static Logger logger = LoggerFactory.getLogger(TorcomApp.class);
+public class TorcomApp implements InitializingBean {
+
+    private final static Logger log = LogManager.getLogger(TorcomApp.class);
+
     @Value("${port}")
     private int port;
     @Autowired
@@ -39,11 +43,13 @@ public class TorcomApp implements InitializingBean{
     private DataSource dataSource;
     @Autowired
     private JsonObjectMapper om;
+    private Ethereum ethereum;
 
     public TorcomApp() {
-        logger.info("Torcom is starting. Please wait...");
+        log.info("Torcom is starting. Please wait...");
         Security.addProvider(new BouncyCastleProvider());
     }
+
 
     public static void main(String[] args) throws JsonProcessingException {
         SpringApplication.run(TorcomApp.class, args);
